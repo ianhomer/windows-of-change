@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["update"]
+    types:
+      - completed
+
+        npm run build:storybook
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: yarn install, build, and test
+          yarn
+          yarn build
+        env:
+          CI: true

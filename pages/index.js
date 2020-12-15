@@ -18,7 +18,6 @@ export default function Home() {
           Get started
         </p>
 
-
         <footer>
            Footer
         </footer>
