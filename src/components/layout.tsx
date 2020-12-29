@@ -13,8 +13,7 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps): JSX.Element {
   const router = useRouter();
-  const title =
-    props.title ?? startCase(router.pathname.replace(/[\/-]/g, " "));
+  const title = props.title ?? startCase(router.pathname.replace(/[/-]/g, " "));
 
   return (
     <>
