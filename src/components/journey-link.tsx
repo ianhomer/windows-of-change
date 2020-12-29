@@ -5,8 +5,5 @@ interface JourneyLinkProps {
 }
 
 export default function JourneyLink(props: JourneyLinkProps): JSX.Element {
-  return (
-    <Link href={props.name}>x</Link>
-  );
+  return <Link href={props.name}>x</Link>;
 }
-

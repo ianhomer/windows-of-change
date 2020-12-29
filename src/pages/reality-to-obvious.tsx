@@ -17,5 +17,5 @@ thx Woody Zuill
 `;
 
 export default function Page() {
-  return <Layout title="From Reality to Obvious" content={content}/>
+  return <Layout title="From Reality to Obvious" content={content} />;
 }

@@ -5,7 +5,5 @@ North Star
 `;
 
 export default function Page() {
-  return (
-    <Layout title="North Star" content={content}/>
-  );
+  return <Layout title="North Star" content={content} />;
 }

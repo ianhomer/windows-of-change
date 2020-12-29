@@ -6,4 +6,4 @@ export default () => {
       <p>Getting started ...</p>
     </Layout>
   );
-}
+};
