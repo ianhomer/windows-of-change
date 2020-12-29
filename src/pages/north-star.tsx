@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from "../components/layout";
 
 export default function NorthStar() {
   return (
@@ -7,4 +7,3 @@ export default function NorthStar() {
     </Layout>
   );
 }
-
