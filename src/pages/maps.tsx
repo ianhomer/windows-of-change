@@ -7,5 +7,5 @@ const content = `
 `;
 
 export default function Page() {
-  return <Layout title="Maps" content={content} />;
+  return <Layout content={content} />;
 }

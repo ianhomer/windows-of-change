@@ -26,6 +26,7 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
+    "lodash": "^4.17.20",
     "next": "10.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1"

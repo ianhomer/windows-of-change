@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <Layout title="Start">
+    <Layout title="Index">
       <p>Getting started ...</p>
       <Link href="/start">start</Link>
       <Link href="/board/dream">board</Link>

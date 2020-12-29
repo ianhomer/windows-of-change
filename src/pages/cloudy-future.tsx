@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 
 const content = `
-North Star
+Cloudy Future
 `;
 
 export default function Page() {
