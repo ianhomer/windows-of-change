@@ -9,7 +9,7 @@ export default function Index() {
 
   return (
     <Layout title="Board">
-      <Board title={stringy(bid)}>
+      <Board title={stringy(bid ?? "not-set")}>
         <div>board content</div>
       </Board>
     </Layout>
