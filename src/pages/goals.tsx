@@ -1,11 +1,12 @@
 import Layout from "../components/layout";
 
 const content = `
-North Star
+- goals
+- work
+- change
+- things change
 `;
 
 export default function Page() {
-  return (
-    <Layout title="North Star" content={content}/>
-  );
+  return <Layout title="Goals" content={content} />;
 }

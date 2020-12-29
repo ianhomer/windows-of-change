@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import Link from "next/link";
 
-export default function Index() {
+export default function Page() {
   return (
     <Layout title="Start">
       <p>Getting started ...</p>

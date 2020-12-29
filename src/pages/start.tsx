@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 
-export default function Index() {
+export default () => {
   return (
     <Layout title="Start">
       <p>Getting started ...</p>
