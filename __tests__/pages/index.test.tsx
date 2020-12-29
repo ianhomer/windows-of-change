@@ -4,5 +4,5 @@ import Index from "../../src/pages/index";
 
 it("renders OK", () => {
   const wrapper = shallow(<Index />);
-  expect(wrapper.find('title').text()).toBe("Windows of Change");
+  expect(wrapper.find('p').text()).toBe("Getting started ...");
 });
