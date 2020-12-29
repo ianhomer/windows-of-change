@@ -1,7 +1,7 @@
 import Board from "../../components/board";
 import Layout from "../../components/layout";
 import { useRouter } from "next/router";
-import stringy from "../../utils/stringy";
+import stringish from "../../utils/stringish";
 
 export default function Index() {
   const router = useRouter();
@@ -9,7 +9,7 @@ export default function Index() {
 
   return (
     <Layout title="Board">
-      <Board title={stringy(bid ?? "not-set")}>
+      <Board title={stringish(bid ?? "not-set")}>
         <div>board content</div>
       </Board>
     </Layout>
