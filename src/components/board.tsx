@@ -1,4 +1,3 @@
-
 interface BoardProps {
   title: string;
   children: any;
