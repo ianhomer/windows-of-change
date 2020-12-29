@@ -13,7 +13,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>{props.title} </title>
+        <title>{props.title}</title>
       </Head>
       <main>
         <Journey />
