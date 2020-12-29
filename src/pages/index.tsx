@@ -6,6 +6,7 @@ export default function Index() {
     <Layout title="Start">
       <p>Getting started ...</p>
       <Link href="/start">start</Link>
+      <Link href="/board/dream">board</Link>
     </Layout>
   );
 }

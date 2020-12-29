@@ -1,9 +1,9 @@
-import Board from "../components/board";
+import Layout from "../components/layout";
 
 export default function Index() {
   return (
-    <Board title="Start">
+    <Layout title="Start">
       <p>Getting started ...</p>
-    </Board>
+    </Layout>
   );
 }
