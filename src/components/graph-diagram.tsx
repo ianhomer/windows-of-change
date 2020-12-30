@@ -74,18 +74,13 @@ export default function GraphDiagram() {
       .force("link", d3.forceLink(graph.links))
       .on("tick", tick);
 
-    function dragstart(event: any) {
-      d3.select(event.currentTarget).classed("fixed", true);
+    function dragstart(this: SVGCircleElement) {
+      d3.select(this).classed("fixed", true);
     }
 
-    function dragged(
-      this: SVGCircleElement,
-      event: any,
-      d: SimulationNodeDatum
-    ) {
-      d.fx = clamp(event.x, 0, width);
-      d.fy = clamp(event.y, 0, height);
-      d3.select(event.currentTarget).classed("fixed", true);
+    function dragged(this: SVGCircleElement, event: any) {
+      event.subject.fx = clamp(event.x, 0, width);
+      event.subject.fy = clamp(event.y, 0, height);
       simulation.alpha(1).restart();
     }
 
