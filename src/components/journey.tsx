@@ -10,6 +10,7 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="reality-to-obvious" />
       <JourneyLink name="maps" />
       <JourneyLink name="cloudy-future" />
+      <JourneyLink name="pivot" />
     </>
   );
 }

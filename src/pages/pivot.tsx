@@ -1,13 +1,7 @@
 import Layout from "../components/layout";
 
 const content = `
-Cloudy Future
-
-Now
-
-Validate Value
-
-Distant Unclear
+Pivot
 `;
 
 export default function Page() {
