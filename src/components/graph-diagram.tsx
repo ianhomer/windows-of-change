@@ -7,7 +7,7 @@ interface Graph {
   links: SimulationLinkDatum<SimulationNodeDatum>[];
 }
 
-export default function Page() {
+export default function GraphDiagram() {
   const ref = useRef(null);
   const width = 400;
   const height = 400;
@@ -27,7 +27,6 @@ export default function Page() {
   useEffect(() => {
     const svg = d3
       .select(ref.current)
-      .append("svg")
       .attr("width", width)
       .attr("height", height);
 
@@ -38,12 +37,12 @@ export default function Page() {
       .classed("link", true);
 
     const node = svg
-      .selectAll(".node")
+      .selectAll<SVGCircleElement, SimulationNodeDatum>(".node")
       .data(graph.nodes)
       .join("circle")
       .attr("r", 10)
       .classed("node", true)
-      .classed("fixed", (d: any) => d.fx !== undefined);
+      .classed("fixed", (d: SimulationNodeDatum) => d.fx !== undefined);
 
     function tick() {
       link
@@ -51,10 +50,12 @@ export default function Page() {
         .attr("y1", (d: any) => d.source.y)
         .attr("x2", (d: any) => d.target.x)
         .attr("y2", (d: any) => d.target.y);
-      node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
+      node
+        .attr("cx", (d: SimulationNodeDatum) => d.x ?? 0)
+        .attr("cy", (d: SimulationNodeDatum) => d.y ?? 0);
     }
 
-    function click(this: any, event: any, d: any) {
+    function click(this: SVGCircleElement, event: any, d: SimulationNodeDatum) {
       delete d.fx;
       delete d.fy;
       d3.select(event.currentTarget).classed("fixed", false);
@@ -73,20 +74,27 @@ export default function Page() {
       .force("link", d3.forceLink(graph.links))
       .on("tick", tick);
 
-    function dragstart(this: any) {
-      d3.select(this).classed("fixed", true);
+    function dragstart(event: any) {
+      d3.select(event.currentTarget).classed("fixed", true);
     }
 
-    function dragged(this: any, event: any, d: any) {
+    function dragged(
+      this: SVGCircleElement,
+      event: any,
+      d: SimulationNodeDatum
+    ) {
       d.fx = clamp(event.x, 0, width);
       d.fy = clamp(event.y, 0, height);
       simulation.alpha(1).restart();
     }
 
-    const drag = d3.drag().on("start", dragstart).on("drag", dragged);
+    const drag = d3
+      .drag<SVGCircleElement, SimulationNodeDatum, any>()
+      .on("start", dragstart)
+      .on("drag", dragged);
 
-    //node.call(drag).on("click", click);
+    node.call(drag).on("click", click);
   }, []);
 
-  return <div ref={ref} />;
+  return <svg ref={ref} />;
 }
