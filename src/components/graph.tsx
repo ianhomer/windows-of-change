@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import * as d3Force from "d3-force";
+import { SimulationNodeDatum, SimulationLinkDatum } from "d3-force";
 
 interface Graph {
-  nodes: d3Force.SimulationNodeDatum[];
-  links: d3Force.SimulationLinkDatum<d3Force.SimulationNodeDatum>[];
+  nodes: SimulationNodeDatum[];
+  links: SimulationLinkDatum<SimulationNodeDatum>[];
 }
 
 export default function Page() {
@@ -43,26 +43,26 @@ export default function Page() {
       .join("circle")
       .attr("r", 10)
       .classed("node", true)
-      .classed("fixed", (d) => d.fx !== undefined);
+      .classed("fixed", (d: any) => d.fx !== undefined);
 
     function tick() {
       link
-        .attr("x1", (d) => d.source.x)
-        .attr("y1", (d) => d.source.y)
-        .attr("x2", (d) => d.target.x)
-        .attr("y2", (d) => d.target.y);
-      node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
+        .attr("x1", (d: any) => d.source.x)
+        .attr("y1", (d: any) => d.source.y)
+        .attr("x2", (d: any) => d.target.x)
+        .attr("y2", (d: any) => d.target.y);
+      node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
     }
 
-    function click(event, d) {
+    function click(this: any, event: any, d: any) {
       delete d.fx;
       delete d.fy;
-      d3.select(this).classed("fixed", false);
+      d3.select(event.currentTarget).classed("fixed", false);
       simulation.alpha(1).restart();
     }
 
-    function clamp(x, lo, hi) {
-      return x < lo ? lo : x > hi ? hi : x;
+    function clamp(x: number, low: number, high: number) {
+      return x < low ? low : x > high ? high : x;
     }
 
     const simulation = d3
@@ -73,11 +73,11 @@ export default function Page() {
       .force("link", d3.forceLink(graph.links))
       .on("tick", tick);
 
-    function dragstart() {
+    function dragstart(this: any) {
       d3.select(this).classed("fixed", true);
     }
 
-    function dragged(event, d) {
+    function dragged(this: any, event: any, d: any) {
       d.fx = clamp(event.x, 0, width);
       d.fy = clamp(event.y, 0, height);
       simulation.alpha(1).restart();
@@ -85,7 +85,7 @@ export default function Page() {
 
     const drag = d3.drag().on("start", dragstart).on("drag", dragged);
 
-    node.call(drag).on("click", click);
+    //node.call(drag).on("click", click);
   }, []);
 
   return <div ref={ref} />;
