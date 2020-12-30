@@ -4,14 +4,22 @@ import * as d3 from "d3";
 
 export default function Page() {
   const ref = useRef(null);
+  const data = [1, 3, 5, 7];
 
   useEffect(() => {
-    d3.select(ref.current).html("Hello");
+    d3.select(ref.current)
+      .selectAll("p")
+      .data(data)
+      .enter()
+      .append("p")
+      .text(function (d) {
+        return "Hello " + d;
+      });
   }, []);
 
   return (
     <Layout>
-      <div ref={ref}>X</div>
+      <div ref={ref} />
     </Layout>
   );
 }
