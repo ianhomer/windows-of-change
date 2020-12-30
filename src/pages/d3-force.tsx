@@ -4,9 +4,9 @@ import GraphDiagram from "../components/graph-diagram";
 export default function Page() {
   const graph: Graph = {
     nodes: [
-      { index: 0, x: 100, y: 100, vx: 0, vy: 0 },
-      { index: 1, x: 100, y: 200, vx: 0, vy: 0 },
-      { index: 2, x: 100, y: 200, vx: 0, vy: 0 },
+      { index: 0, fx: 100, fy: 200 },
+      { index: 1, fx: 200, fy: 200 },
+      { index: 2, fx: 300, fy: 200 },
     ],
     links: [
       { source: 0, target: 1 },
