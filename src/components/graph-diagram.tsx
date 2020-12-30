@@ -1,11 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { SimulationNodeDatum, SimulationLinkDatum } from "d3-force";
-
-interface Graph {
-  nodes: SimulationNodeDatum[];
-  links: SimulationLinkDatum<SimulationNodeDatum>[];
-}
+import { SimulationNodeDatum } from "d3-force";
+import { Graph } from "../types/graph";
 
 export default function GraphDiagram() {
   const ref = useRef(null);
