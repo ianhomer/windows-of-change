@@ -38,7 +38,7 @@ export default function Page() {
       .classed("link", true);
 
     const node = svg
-      .selectAll(".node")
+      .selectAll<SVGCircleElement, SimulationNodeDatum>(".node")
       .data(graph.nodes)
       .join("circle")
       .attr("r", 10)
@@ -54,7 +54,7 @@ export default function Page() {
       node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
     }
 
-    function click(this: Element, event: any, d: any) {
+    function click(this: SVGCircleElement, event: any, d: SimulationNodeDatum) {
       delete d.fx;
       delete d.fy;
       d3.select(event.currentTarget).classed("fixed", false);
@@ -77,15 +77,22 @@ export default function Page() {
       d3.select(event.currentTarget).classed("fixed", true);
     }
 
-    function dragged(this: Element, event: any, d: any) {
+    function dragged(
+      this: SVGCircleElement,
+      event: any,
+      d: SimulationNodeDatum
+    ) {
       d.fx = clamp(event.x, 0, width);
       d.fy = clamp(event.y, 0, height);
       simulation.alpha(1).restart();
     }
 
-    d3.drag().on("start", dragstart).on("drag", dragged);
+    const drag = d3
+      .drag<SVGCircleElement, SimulationNodeDatum, any>()
+      .on("start", dragstart)
+      .on("drag", dragged);
 
-    //node.call(drag).on("click", click);
+    node.call(drag).on("click", click);
   }, []);
 
   return (
