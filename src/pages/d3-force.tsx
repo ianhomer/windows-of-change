@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import GraphDiagram from "../components/graph-diagram";
+import { Graph } from "../types/graph";
 
 export default function Page() {
   const graph: Graph = {
