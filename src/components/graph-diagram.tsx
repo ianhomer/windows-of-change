@@ -3,22 +3,14 @@ import * as d3 from "d3";
 import { SimulationNodeDatum } from "d3-force";
 import { Graph } from "../types/graph";
 
-export default function GraphDiagram() {
+interface GraphDiagramProps {
+  graph: Graph;
+}
+
+export default function GraphDiagram(props: GraphDiagramProps) {
   const ref = useRef(null);
   const width = 400;
   const height = 400;
-
-  const graph: Graph = {
-    nodes: [
-      { index: 0, x: 100, y: 100, vx: 0, vy: 0 },
-      { index: 1, x: 100, y: 200, vx: 0, vy: 0 },
-      { index: 2, x: 100, y: 200, vx: 0, vy: 0 },
-    ],
-    links: [
-      { source: 0, target: 1 },
-      { source: 1, target: 2 },
-    ],
-  };
 
   useEffect(() => {
     const svg = d3
@@ -28,13 +20,13 @@ export default function GraphDiagram() {
 
     const link = svg
       .selectAll(".link")
-      .data(graph.links)
+      .data(props.graph.links)
       .join("line")
       .classed("link", true);
 
     const node = svg
       .selectAll<SVGCircleElement, SimulationNodeDatum>(".node")
-      .data(graph.nodes)
+      .data(props.graph.nodes)
       .join("circle")
       .attr("r", 10)
       .classed("node", true)
@@ -64,10 +56,10 @@ export default function GraphDiagram() {
 
     const simulation = d3
       .forceSimulation()
-      .nodes(graph.nodes)
+      .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("link", d3.forceLink(graph.links))
+      .force("link", d3.forceLink(props.graph.links))
       .on("tick", tick);
 
     function dragstart(this: SVGCircleElement) {
