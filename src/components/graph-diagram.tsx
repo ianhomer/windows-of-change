@@ -85,6 +85,7 @@ export default function GraphDiagram() {
     ) {
       d.fx = clamp(event.x, 0, width);
       d.fy = clamp(event.y, 0, height);
+      d3.select(event.currentTarget).classed("fixed", true);
       simulation.alpha(1).restart();
     }
 
