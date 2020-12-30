@@ -51,7 +51,9 @@ export default function Page() {
         .attr("y1", (d: any) => d.source.y)
         .attr("x2", (d: any) => d.target.x)
         .attr("y2", (d: any) => d.target.y);
-      node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
+      node
+        .attr("cx", (d: SimulationNodeDatum) => d.x ?? 0)
+        .attr("cy", (d: SimulationNodeDatum) => d.y ?? 0);
     }
 
     function click(this: SVGCircleElement, event: any, d: SimulationNodeDatum) {
