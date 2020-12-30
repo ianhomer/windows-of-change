@@ -12,6 +12,7 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="cloudy-future" />
       <JourneyLink name="pivot" />
       <JourneyLink name="d3-force" />
+      <JourneyLink name="board-1" />
     </>
   );
 }
