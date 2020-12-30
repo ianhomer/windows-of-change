@@ -43,7 +43,7 @@ export default function Page() {
       .join("circle")
       .attr("r", 10)
       .classed("node", true)
-      .classed("fixed", (d: any) => d.fx !== undefined);
+      .classed("fixed", (d: SimulationNodeDatum) => d.fx !== undefined);
 
     function tick() {
       link
