@@ -12,8 +12,8 @@ export default function Page() {
       .data(data)
       .enter()
       .append("p")
-      .text(function (d) {
-        return "Hello " + d;
+      .text(function (d, i) {
+        return "Hello " + d + ":" + i;
       });
   }, []);
 
