@@ -17,9 +17,7 @@ export default function Page() {
       .data(data)
       .enter()
       .append("circle")
-      .attr("cx", function (d, i) {
-        return 20 + i * 25;
-      })
+      .attr("cx", (d, i) => 20 + i * 25)
       .attr("cy", 20)
       .attr("r", 10)
       .attr("stroke", "black")

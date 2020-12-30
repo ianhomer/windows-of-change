@@ -12,9 +12,7 @@ export default function Page() {
       .data(data)
       .enter()
       .append("p")
-      .text(function (d, i) {
-        return "Hello " + d + ":" + i;
-      });
+      .text((d, i) => "Hello " + d + ":" + i);
   }, []);
 
   return (
