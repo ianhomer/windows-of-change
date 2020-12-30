@@ -2,7 +2,6 @@ import styles from "../styles/Window.module.css";
 import {
   useDrag,
   useDrop,
-  DragObjectWithType,
   DragSourceMonitor,
   DropTargetMonitor,
 } from "react-dnd";
@@ -42,7 +41,6 @@ export default function Window(): JSX.Element {
       };
       setLeft(Math.round(item.left + delta.x));
       setTop(Math.round(item.top + delta.y));
-      console.log(item.top);
       return undefined;
     },
   });
