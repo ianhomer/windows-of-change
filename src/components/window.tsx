@@ -33,7 +33,7 @@ export default function Window(): JSX.Element {
       isDragging: monitor.isDragging(),
     }),
   });
-  const [,] = useDrop({
+  const [, drop] = useDrop({
     accept: "window",
     drop(item: Draggable, monitor: DropTargetMonitor) {
       const delta = monitor.getDifferenceFromInitialOffset() as {
@@ -49,11 +49,22 @@ export default function Window(): JSX.Element {
 
   return (
     <div
-      ref={drag}
-      className={styles.window}
-      style={getStyles(left, top, isDragging)}
+      ref={drop}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+      }}
     >
-      {isDragging ? 1 : 0}Y
+      <div
+        ref={drag}
+        className={styles.window}
+        style={getStyles(left, top, isDragging)}
+      >
+        {isDragging ? 1 : 0}Y
+      </div>
     </div>
   );
 }

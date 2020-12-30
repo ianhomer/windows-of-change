@@ -8,7 +8,6 @@ export default function Page() {
     <Layout>
       <DndProvider backend={HTML5Backend}>
         <Window />
-        <Window />
       </DndProvider>
     </Layout>
   );
