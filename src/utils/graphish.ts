@@ -10,7 +10,6 @@ export function addNodes(graph: Graph, nodes: Node[]): Graph {
 
 export function removeNodes(graph: Graph, nodes: Node[]): Graph {
   const newGraph: Graph = cloneDeep(graph);
-  //newGraph.nodes = [];
   newGraph.nodes = remove(newGraph.nodes, (node: Node): boolean => {
     return !nodes.find((item) => {
       return item.id == node.id;
