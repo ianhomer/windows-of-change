@@ -1,4 +1,4 @@
-import styles from "../styles/Window.module.css";
+import styles from "../styles/Window.module.scss";
 import { useDrag, DragSourceMonitor } from "react-dnd";
 import { Delta, Draggable } from "../types/draggable";
 import { useState } from "react";
