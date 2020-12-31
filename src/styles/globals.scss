@@ -1,9 +1,13 @@
+$heading: #e6007e;
+$background: #0e253a;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: sofia-pro,Helvetica,Arial,sans-serif;
+  background-color: $background;
+  color: #fff;
 }
 
 a {
@@ -13,6 +17,11 @@ a {
 
 svg {
   border: 1px solid #ccc;
+}
+
+h1 {
+  color: $heading;
+  text-transform: uppercase;
 }
 
 .link {

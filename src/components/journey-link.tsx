@@ -10,7 +10,7 @@ interface JourneyLinkProps {
 //    useRouter().pathname !== props.name ? '#ccc' : '#eee';
 //  }};
 const StyledLink = styled.a<{ active: boolean }>`
-  background-color: ${(props) => (props.active ? "#ccc" : "#eee")};
+  background-color: ${(props) => (props.active ? "#000" : "auto")};
   display: block;
   float: left;
   width: 1.5em;
@@ -18,7 +18,7 @@ const StyledLink = styled.a<{ active: boolean }>`
   text-align: center;
   padding: 0em;
   margin-right: 0.5em;
-  border: 1px solid #000;
+  border: 1px solid #fff;
 `;
 
 export default function JourneyLink(props: JourneyLinkProps): JSX.Element {
