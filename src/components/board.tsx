@@ -23,7 +23,7 @@ export default function Board(props: BoardProps): JSX.Element {
         top: 50,
         left: 0,
         width: "100%",
-        height: "100%",
+        height: "90%",
       }}
     >
       {props.children}

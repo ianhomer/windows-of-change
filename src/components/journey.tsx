@@ -1,8 +1,15 @@
 import JourneyLink from "./journey-link";
+import styled from "styled-components";
+
+const Wrapper = styled.a`
+  display: block;
+  position: absolute;
+  bottom: 0%;
+`;
 
 export default function Journey(): JSX.Element {
   return (
-    <>
+    <Wrapper>
       <JourneyLink />
       <JourneyLink name="start" />
       <JourneyLink name="north-star" />
@@ -26,6 +33,6 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="wrap" />
       <JourneyLink name="d3-force" />
       <JourneyLink name="board-1" />
-    </>
+    </Wrapper>
   );
 }
