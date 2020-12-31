@@ -20,7 +20,6 @@ export default function Page() {
   });
 
   const onChange = () => {
-    console.log(graph);
     setGraph(
       addNodes(graph, [
         { index: 3, type: NodeType.Change, size: 10 },
