@@ -10,7 +10,7 @@ const Wrapper = styled.a`
 export default function Journey(): JSX.Element {
   return (
     <Wrapper>
-      <JourneyLink />
+      <JourneyLink name="" />
       <JourneyLink name="start" />
       <JourneyLink name="north-star" />
       <JourneyLink name="goals" />
