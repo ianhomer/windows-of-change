@@ -1,6 +1,6 @@
 interface ToggleProps {
   checked: boolean;
-  onChange: () => void;
+  onChange: (checked: boolean) => void;
 }
 
 export default function Toggle(props: ToggleProps): JSX.Element {
@@ -10,7 +10,9 @@ export default function Toggle(props: ToggleProps): JSX.Element {
         type="checkbox"
         className="toggle-switch-checkbox"
         checked={props.checked}
-        onChange={() => props.onChange()}
+        onChange={(event) => {
+          props.onChange(event.target.checked);
+        }}
       />
     </div>
   );
