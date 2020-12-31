@@ -20,7 +20,7 @@ export default function Board(props: BoardProps): JSX.Element {
       ref={drop}
       style={{
         position: "absolute",
-        top: 0,
+        top: 50,
         left: 0,
         width: "100%",
         height: "100%",
