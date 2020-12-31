@@ -9,7 +9,7 @@ interface GraphDiagramProps {
 
 export default function GraphDiagram(props: GraphDiagramProps) {
   const ref = useRef(null);
-  const width = 400;
+  const width = 800;
   const height = 400;
 
   useEffect(() => {
@@ -77,7 +77,11 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .on("drag", dragged);
 
     node.call(drag).on("click", click);
-  }, []);
+  }, [props]);
 
-  return <svg ref={ref} />;
+  return (
+    <>
+      <svg ref={ref} />
+    </>
+  );
 }
