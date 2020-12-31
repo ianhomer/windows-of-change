@@ -29,6 +29,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .data(props.graph.nodes)
       .join("circle")
       .attr("r", (d: Node) => d?.size ?? 10)
+      .attr("data-type", (d: Node) => d?.type ?? "unknown")
       .classed("node", true)
       .classed("fixed", (d: Node) => d.fx !== undefined);
 

@@ -23,12 +23,24 @@ svg {
 .node {
   cursor: move;
   fill: #ccc;
-  stroke: #000;
+  stroke: #f00;
   stroke-width: 1.5px;
 }
 
 .node.fixed {
+  stroke: #000;
+}
+
+.node[data-type="thing"] {
+  fill: #0f0;
+}
+
+.node[data-type="change"] {
   fill: #f00;
+}
+
+.node[data-type="do"] {
+  fill: #00f;
 }
 
 * {
