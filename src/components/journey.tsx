@@ -11,6 +11,19 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="maps" />
       <JourneyLink name="cloudy-future" />
       <JourneyLink name="pivot" />
+      <JourneyLink name="silos" />
+      <JourneyLink name="guard-rails" />
+      <JourneyLink name="how-to-contribute" />
+      <JourneyLink name="trunk" />
+      <JourneyLink name="tensions" />
+      <JourneyLink name="me-to-org" />
+      <JourneyLink name="todo" />
+      <JourneyLink name="delivery-lead" />
+      <JourneyLink name="product-lead" />
+      <JourneyLink name="technical-lead" />
+      <JourneyLink name="worth-knowing" />
+      <JourneyLink name="wip" />
+      <JourneyLink name="wrap" />
       <JourneyLink name="d3-force" />
       <JourneyLink name="board-1" />
     </>
