@@ -5,5 +5,5 @@ const content = `
 `;
 
 export default function Page() {
-  return <Layout content={content} />;
+  return <Layout content={content} title="WORTH Knowing" />;
 }

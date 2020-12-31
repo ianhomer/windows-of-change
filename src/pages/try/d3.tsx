@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 

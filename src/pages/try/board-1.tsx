@@ -1,6 +1,6 @@
-import Layout from "../components/layout";
-import Window from "../components/window";
-import Board from "../components/board";
+import Layout from "../../components/layout";
+import Window from "../../components/window";
+import Board from "../../components/board";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 

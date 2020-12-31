@@ -31,8 +31,8 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="worth-knowing" />
       <JourneyLink name="wip" />
       <JourneyLink name="wrap" />
-      <JourneyLink name="d3-force" />
-      <JourneyLink name="board-1" />
+      <JourneyLink name="try/d3-force" />
+      <JourneyLink name="try/board-1" />
     </Wrapper>
   );
 }
