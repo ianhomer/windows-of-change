@@ -21,6 +21,7 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="silos" />
       <JourneyLink name="guard-rails" />
       <JourneyLink name="how-to-contribute" />
+      <JourneyLink name="things-change-do" />
       <JourneyLink name="trunk" />
       <JourneyLink name="tensions" />
       <JourneyLink name="me-to-org" />

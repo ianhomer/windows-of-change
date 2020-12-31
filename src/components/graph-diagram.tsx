@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { SimulationNodeDatum } from "d3-force";
-import { Graph } from "../types/graph";
+import { Node, Graph } from "../types/graph";
 
 interface GraphDiagramProps {
   graph: Graph;
@@ -25,12 +25,12 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .classed("link", true);
 
     const node = svg
-      .selectAll<SVGCircleElement, SimulationNodeDatum>(".node")
+      .selectAll<SVGCircleElement, Node>(".node")
       .data(props.graph.nodes)
       .join("circle")
-      .attr("r", 10)
+      .attr("r", (d: Node) => d?.size ?? 10)
       .classed("node", true)
-      .classed("fixed", (d: SimulationNodeDatum) => d.fx !== undefined);
+      .classed("fixed", (d: Node) => d.fx !== undefined);
 
     function tick() {
       link
@@ -38,12 +38,10 @@ export default function GraphDiagram(props: GraphDiagramProps) {
         .attr("y1", (d: any) => d.source.y)
         .attr("x2", (d: any) => d.target.x)
         .attr("y2", (d: any) => d.target.y);
-      node
-        .attr("cx", (d: SimulationNodeDatum) => d.x ?? 0)
-        .attr("cy", (d: SimulationNodeDatum) => d.y ?? 0);
+      node.attr("cx", (d: Node) => d.x ?? 0).attr("cy", (d: Node) => d.y ?? 0);
     }
 
-    function click(this: SVGCircleElement, event: any, d: SimulationNodeDatum) {
+    function click(this: SVGCircleElement, event: any, d: Node) {
       delete d.fx;
       delete d.fy;
       d3.select(event.currentTarget).classed("fixed", false);
@@ -73,7 +71,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     }
 
     const drag = d3
-      .drag<SVGCircleElement, SimulationNodeDatum, any>()
+      .drag<SVGCircleElement, Node, any>()
       .on("start", dragstart)
       .on("drag", dragged);
 
