@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { SimulationNodeDatum } from "d3-force";
 import { Node, Graph } from "../types/graph";
 
 interface GraphDiagramProps {
