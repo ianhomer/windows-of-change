@@ -8,6 +8,8 @@ body {
   font-family: sofia-pro,Helvetica,Arial,sans-serif;
   background-color: $background;
   color: #fff;
+  overflow: hidden;
+  height: 100%;
 }
 
 a {
