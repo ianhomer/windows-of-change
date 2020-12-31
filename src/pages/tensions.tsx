@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import GraphDiagram from "../components/graph-diagram";
 import { Graph, NodeType } from "../types/graph";
-import { merge } from "lodash";
+import { addNodes } from "../utils/graphish";
 
 const content = `
 - content
@@ -21,15 +21,10 @@ export default function Page() {
   // 3 Amigos with desired changes
   const graphs = [graph];
   graphs.push(
-    merge(graphs[0], {
-      nodes: [
-        {},
-        {},
-        {},
-        { index: 3, type: NodeType.Change, size: 10 },
-        { index: 4, type: NodeType.Change, size: 10 },
-      ],
-    })
+    addNodes(graphs[0], [
+      { index: 3, type: NodeType.Change, size: 10 },
+      { index: 4, type: NodeType.Change, size: 10 },
+    ])
   );
 
   return (
