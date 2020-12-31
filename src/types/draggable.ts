@@ -3,4 +3,10 @@ export interface Draggable {
   type: string;
   left: number;
   top: number;
+  move: (delta: Delta) => void;
+}
+
+export interface Delta {
+  x: number;
+  y: number;
 }

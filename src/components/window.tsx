@@ -1,12 +1,13 @@
 import styles from "../styles/Window.module.css";
-import {
-  useDrag,
-  useDrop,
-  DragSourceMonitor,
-  DropTargetMonitor,
-} from "react-dnd";
-import { Draggable } from "../types/draggable";
+import { useDrag, DragSourceMonitor } from "react-dnd";
+import { Delta, Draggable } from "../types/draggable";
 import { useState } from "react";
+
+interface WindowProps {
+  left?: number;
+  top?: number;
+  children: any;
+}
 
 function getStyles(
   left: number,
@@ -22,47 +23,29 @@ function getStyles(
   };
 }
 
-export default function Window(): JSX.Element {
-  const [left, setLeft] = useState(0);
-  const [top, setTop] = useState(0);
+export default function Window(props: WindowProps): JSX.Element {
+  const [left, setLeft] = useState(props.left ?? 0);
+  const [top, setTop] = useState(props.top ?? 0);
+
+  const move = (delta: Delta) => {
+    setLeft(Math.round(left + delta.x));
+    setTop(Math.round(top + delta.y));
+  };
 
   const [{ isDragging }, drag] = useDrag({
-    item: { type: "window", id: "1", left, top } as Draggable,
+    item: { type: "window", id: "1", move, left, top } as Draggable,
     collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
-  const [, drop] = useDrop({
-    accept: "window",
-    drop(item: Draggable, monitor: DropTargetMonitor) {
-      const delta = monitor.getDifferenceFromInitialOffset() as {
-        x: number;
-        y: number;
-      };
-      setLeft(Math.round(item.left + delta.x));
-      setTop(Math.round(item.top + delta.y));
-      return undefined;
-    },
-  });
 
   return (
     <div
-      ref={drop}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }}
+      ref={drag}
+      className={styles.window}
+      style={getStyles(left, top, isDragging)}
     >
-      <div
-        ref={drag}
-        className={styles.window}
-        style={getStyles(left, top, isDragging)}
-      >
-        {isDragging ? 1 : 0}Y
-      </div>
+      {props.children}
     </div>
   );
 }
