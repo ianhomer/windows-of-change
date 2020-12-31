@@ -11,11 +11,16 @@ export default function GraphDiagram(props: GraphDiagramProps) {
   const width = 800;
   const height = 400;
 
+  // Initial Load
   useEffect(() => {
-    const svg = d3
-      .select(ref.current)
-      .attr("width", width)
-      .attr("height", height);
+    console.log("useEffect 1");
+    d3.select(ref.current).attr("width", width).attr("height", height);
+  }, []);
+
+  // props update
+  useEffect(() => {
+    console.log("useEffect 2");
+    const svg = d3.select(ref.current);
 
     const link = svg
       .selectAll(".link")
@@ -48,10 +53,6 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       simulation.alpha(1).restart();
     }
 
-    function clamp(x: number, low: number, high: number) {
-      return x < low ? low : x > high ? high : x;
-    }
-
     const simulation = d3
       .forceSimulation()
       .nodes(props.graph.nodes)
@@ -62,6 +63,10 @@ export default function GraphDiagram(props: GraphDiagramProps) {
 
     function dragstart(this: SVGCircleElement) {
       d3.select(this).classed("fixed", true);
+    }
+
+    function clamp(x: number, low: number, high: number) {
+      return x < low ? low : x > high ? high : x;
     }
 
     function dragged(this: SVGCircleElement, event: any) {
