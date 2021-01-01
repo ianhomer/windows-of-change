@@ -11,28 +11,35 @@ export default function ChangingText(props: ChaningTextProps): JSX.Element {
   useEffect(() => {
     const svg = d3.select(ref.current);
 
-    const text = svg.selectAll<SVGTextElement, string>("text");
-
-    //const transition = text.transition().duration(750);
-
-    text
+    svg
+      .selectAll<SVGTextElement, string>("text")
       .data(props.children, (d) => d)
       .join(
         (enter) =>
           enter
             .append("text")
             .attr("x", (d, i) => 30 + i * 10)
-            .attr("y", 60)
+            .attr("y", 0)
             .attr("stroke", "white")
             .attr("fill", "white")
-            .text((d) => d),
-        //.call((enter) => enter.transition(transition).attr("y", 60)),
-        (update) => update.attr("fill", "white").attr("y", 60),
-        //.call((update) =>
-        //  update.transition(transition).attr("x", (d, i) => 30 + i * 10)
-        //)
-        (exit) => exit.attr("fill", "brown")
-        //.call((exit) => exit.transition(transition).attr("y", 300).remove())
+            .text((d) => d)
+            .call((enter) => enter.transition().duration(750).attr("y", 60)),
+        (update) =>
+          update
+            .attr("fill", "white")
+            .attr("y", 60)
+            .call((update) =>
+              update
+                .transition()
+                .duration(750)
+                .attr("x", (d, i) => 30 + i * 10)
+            ),
+        (exit) =>
+          exit
+            .attr("fill", "brown")
+            .call((exit) =>
+              exit.transition().duration(750).attr("y", 300).remove()
+            )
       );
 
     svg.node();
