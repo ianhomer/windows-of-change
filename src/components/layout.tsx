@@ -22,10 +22,16 @@ export default function Layout(props: LayoutProps): JSX.Element {
 
   return (
     <>
+      <style jsx global>{`
+        body {
+          background-color: #0e253a;
+          overflow: hidden;
+        }
+      `}</style>
       <Head>
         <title>{title}</title>
       </Head>
-      <main>
+      <main className={styles.main}>
         <Journey />
         <h1>{title}</h1>
         <div className={styles.container}>

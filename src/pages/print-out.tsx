@@ -1,7 +1,6 @@
 import PrintableLesson from "../components/printable-lesson";
-//import windowsOfChange from "../journeys/windows-of-change";
+import windowsOfChange from "../journeys/windows-of-change";
 import dynamic from "next/dynamic";
-const windowsOfChange = ["goals"];
 
 export default function Page() {
   return (
@@ -13,12 +12,11 @@ export default function Page() {
               .then((mod) => () => (
                 <PrintableLesson name={name} lesson={mod.default} />
               ))
-              .catch(() => () => <div>Cannot find lesson {name}</div>),
+              .catch(() => () => <PrintableLesson name={name} />),
           { loading: () => () => <p>loading</p> }
         );
         return (
           <div>
-            {name} {JSON.stringify(DynamicComponent)}
             <DynamicComponent />
           </div>
         );

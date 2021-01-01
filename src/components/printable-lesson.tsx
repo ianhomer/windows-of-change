@@ -25,10 +25,10 @@ export default function PrintableLesson(
   return (
     <Wrapper>
       <h2>{props.name}</h2>
-      {props.lesson.content && (
+      {props.lesson?.content && (
         <ReactMarkdown children={props.lesson.content} />
       )}
-      {props.lesson.content && (
+      {props.lesson?.content && (
         <Notes>
           <ReactMarkdown children={props.lesson.notes} />
         </Notes>

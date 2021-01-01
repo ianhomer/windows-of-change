@@ -24,7 +24,5 @@ const journey: string[] = [
   "delete-something",
   "wip",
   "wrap",
-  "try/d3-force",
-  "try/board-1",
 ];
 export default journey;

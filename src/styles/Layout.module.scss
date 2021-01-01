@@ -1,3 +1,5 @@
+$background: #0e253a;
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -14,4 +16,10 @@
   color: #000;
   background-color: #aaa;
   padding: 1em;
+}
+
+.main {
+  background-color: $background;
+  color: #fff;
+  height: 100%;
 }
