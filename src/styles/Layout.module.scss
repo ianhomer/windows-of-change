@@ -6,3 +6,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.notes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #000;
+  background-color: #aaa;
+  padding: 1em;
+}

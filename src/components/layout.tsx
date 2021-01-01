@@ -9,6 +9,7 @@ interface LayoutProps {
   title?: string;
   children?: any;
   content?: string;
+  notes?: string;
 }
 
 export default function Layout(props: LayoutProps): JSX.Element {
@@ -26,6 +27,11 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <div className={styles.container}>
           {props.content && <ReactMarkdown children={props.content} />}
           {props.children && <>{props.children}</>}
+          {props.notes && (
+            <div className={styles.notes}>
+              <ReactMarkdown children={props.notes} />
+            </div>
+          )}
         </div>
       </main>
     </>
