@@ -1,7 +1,7 @@
 import JourneyLink from "./journey-link";
 import styled from "styled-components";
 
-const Wrapper = styled.a`
+const Wrapper = styled.div`
   display: block;
   position: absolute;
   bottom: 0%;

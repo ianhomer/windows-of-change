@@ -9,7 +9,7 @@ interface JourneyLinkProps {
 //  background-color: ${props => {
 //    useRouter().pathname !== props.name ? '#ccc' : '#eee';
 //  }};
-const StyledLink = styled.span<{ active: boolean }>`
+const StyledLink = styled.a<{ active: boolean }>`
   background-color: ${(props) => (props.active ? "#000" : "auto")};
   display: block;
   float: left;
