@@ -32,6 +32,8 @@ export default function Journey(): JSX.Element {
       <JourneyLink name="product-lead" />
       <JourneyLink name="technical-lead" />
       <JourneyLink name="worth-knowing" />
+      <JourneyLink name="turn-up-the-good" />
+      <JourneyLink name="delete-something" />
       <JourneyLink name="wip" />
       <JourneyLink name="wrap" />
       <JourneyLink name="try/d3-force" />
