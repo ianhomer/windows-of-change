@@ -2,9 +2,17 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-Happiness is when what you think, what you say, and what you do are in harmony.
+- silos
+- mulitple streams of work
+- peer reviews
+- knowledge share
+`,
 
-Mahatma Gandhi
+  notes: `
+- diagram of multiple streams of work + inter-coordination
+- how siloing creates extra work to do
+  - to compensate misalignment
+- waste
 `,
 };
 
