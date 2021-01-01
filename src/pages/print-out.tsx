@@ -10,13 +10,18 @@ export default function Page() {
         <div>{name}</div>
       ))}
       {windowsOfChange.map((name) => {
-        dynamic(() => {
-          import("../lessons/" + name)
-            .then(() => <div>X{name}</div>)
-            .catch(() => <div>Cannot find {name}</div>),
-            { loading: () => <p>loading</p> };
-        });
-        return <div>{name}</div>;
+        const DynamicComponent = dynamic(
+          () =>
+            import("../lessons/" + name)
+              .then(() => <div>X{name}</div>)
+              .catch(() => <div>Cannot find {name}</div>),
+          { loading: () => <p>loading</p> }
+        );
+        return (
+          <div>
+            {name} {JSON.stringify(DynamicComponent)}
+          </div>
+        );
       })}
     </div>
   );
