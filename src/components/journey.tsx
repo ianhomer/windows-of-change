@@ -12,6 +12,8 @@ export default function Journey(): JSX.Element {
     <Wrapper>
       <JourneyLink name="" />
       <JourneyLink name="start" />
+      <JourneyLink name="do" />
+      <JourneyLink name="happiness" />
       <JourneyLink name="north-star" />
       <JourneyLink name="goals" />
       <JourneyLink name="reality-to-obvious" />
