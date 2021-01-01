@@ -1,7 +1,10 @@
 import Layout from "../components/layout";
 
 const content = `
-- content
+- dream dashboard
+- flow
+- blockages
+- scalability (team)
 `;
 
 export default function Page() {

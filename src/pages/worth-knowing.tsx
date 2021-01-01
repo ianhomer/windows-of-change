@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 
 const content = `
-- content
+- what's worth knowing
 `;
 
 export default function Page() {

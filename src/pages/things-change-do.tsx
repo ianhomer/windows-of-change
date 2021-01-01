@@ -8,6 +8,12 @@ const content = `
 - do
 `;
 
+const notes = `
+- create legend for thing change do - consistent colours throughout
+- everything we do helps change the thing we care for
+- the thing we value can provide more value by change that we do
+`;
+
 export default function Page() {
   const graph: Graph = {
     nodes: [
@@ -19,7 +25,7 @@ export default function Page() {
   };
 
   return (
-    <Layout content={content}>
+    <Layout content={content} notes={notes}>
       <GraphDiagram graph={graph} />
     </Layout>
   );

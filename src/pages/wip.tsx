@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 
 const content = `
-- content
+- WIP limits
 `;
 
 export default function Page() {

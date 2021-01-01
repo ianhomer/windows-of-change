@@ -5,6 +5,14 @@ import { Graph, NodeType } from "../types/graph";
 import { addNodes, removeNodes } from "../utils/graphish";
 import { useState } from "react";
 
+const notes = `
+- Product - vision
+- Delivery - flow
+- Technical - engineering, build
+- tension & balance
+- sequence change
+`;
+
 export default function Page() {
   const [checked, setChecked] = useState(false);
   const [graph, setGraph] = useState<Graph>({
@@ -29,7 +37,7 @@ export default function Page() {
   };
 
   return (
-    <Layout>
+    <Layout notes={notes}>
       <GraphDiagram graph={graph} />
       <Toggle checked={checked} onChange={onChange} />
     </Layout>
