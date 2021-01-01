@@ -1,6 +1,6 @@
 import { Lesson } from "../types/lesson";
 
-export const lesson: Lesson = {
+const lesson: Lesson = {
   content: `
 - goals
 - work
@@ -12,3 +12,4 @@ export const lesson: Lesson = {
 - sequencing changes
 `,
 };
+export default lesson;
