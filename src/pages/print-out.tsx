@@ -1,3 +1,4 @@
+import PrintableLesson from "../components/printable-lesson";
 //import windowsOfChange from "../journeys/windows-of-change";
 import dynamic from "next/dynamic";
 const windowsOfChange = ["goals"];
@@ -13,7 +14,7 @@ export default function Page() {
         const DynamicComponent = dynamic(
           () =>
             import("../lessons/" + name)
-              .then((mod) => () => <div>{JSON.stringify(mod.default)}</div>)
+              .then((mod) => () => <PrintableLesson lesson={mod.default} />)
               .catch(() => () => <div>Cannot find {name}</div>),
           { loading: () => () => <p>loading</p> }
         );
