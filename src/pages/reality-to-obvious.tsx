@@ -16,6 +16,12 @@ and create **theories** that allow us to **judge** what we have seen to form our
 thx Woody Zuill
 `;
 
+const notes = `
+- create stack component
+- show layers of truth
+- use this to map into other layer - values / principles / practices
+`;
+
 export default function Page() {
-  return <Layout content={content} />;
+  return <Layout content={content} notes={notes} />;
 }

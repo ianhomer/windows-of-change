@@ -7,6 +7,11 @@ const content = `
 - things change
 `;
 
+const notes = `
+- breaking down changes
+- sequencing changes
+`;
+
 export default function Page() {
-  return <Layout content={content} />;
+  return <Layout content={content} notes={notes} />;
 }
