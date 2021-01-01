@@ -1,8 +1,14 @@
 import Layout from "../components/layout";
-import { lesson } from "../lessons/goal";
+import dynamic from "next/dynamic";
 
-//const lesson = import('../lessons/goal').then(mod => mod.lesson)
+const DynamicComponent = dynamic(() =>
+  import("../lessons/goal").then((mod) => () => <Layout lesson={mod.lesson} />)
+);
 
 export default function Page() {
-  return <Layout lesson={lesson} />;
+  return (
+    <>
+      <DynamicComponent />
+    </>
+  );
 }
