@@ -2,9 +2,10 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-Happiness is when what you think, what you say, and what you do are in harmony.
-
-Mahatma Gandhi
+- design (service / UX)
+- do we know what we want?
+- what will we do next?
+- do we know what we have?
 `,
 };
 
