@@ -28,7 +28,7 @@ export default function PrintableLesson(
       {props.lesson?.content && (
         <ReactMarkdown children={props.lesson.content} />
       )}
-      {props.lesson?.content && (
+      {props.lesson?.notes && (
         <Notes>
           <ReactMarkdown children={props.lesson.notes} />
         </Notes>

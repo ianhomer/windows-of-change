@@ -1,4 +1,5 @@
 import PrintableLesson from "../components/printable-lesson";
+import PrintableLessonNotFound from "../components/printable-lesson-not-found";
 import windowsOfChange from "../journeys/windows-of-change";
 import dynamic from "next/dynamic";
 
@@ -12,8 +13,8 @@ export default function Page() {
               .then((mod) => () => (
                 <PrintableLesson name={name} lesson={mod.default} />
               ))
-              .catch(() => () => <PrintableLesson name={name} />),
-          { loading: () => () => <p>loading</p> }
+              .catch(() => () => <PrintableLessonNotFound name={name} />),
+          { loading: () => <p>loading</p> }
         );
         return (
           <div>
