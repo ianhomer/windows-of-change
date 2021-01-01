@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Notes = styled.div`
-  border: 1px solid #666;
+  border: 1px dotted #666;
   margin: 0.5em;
   padding: 0.5em;
 `;

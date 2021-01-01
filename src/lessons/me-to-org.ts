@@ -2,9 +2,15 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-Happiness is when what you think, what you say, and what you do are in harmony.
-
-Mahatma Gandhi
+- me -> mob -> team -> org
+`,
+  notes: `
+- dream dask board
+- context level
+  - helicopter to worm
+- focus / concentrate on appropriate context level
+- zero in on - aim precisely at target
+- what should I/we do next
 `,
 };
 
