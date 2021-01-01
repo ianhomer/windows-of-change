@@ -1,18 +1,7 @@
 import Layout from "../components/layout";
 import GraphDiagram from "../components/graph-diagram";
 import { Graph, NodeType } from "../types/graph";
-
-const content = `
-- things
-- change
-- do
-`;
-
-const notes = `
-- create legend for thing change do - consistent colours throughout
-- everything we do helps change the thing we care for
-- the thing we value can provide more value by change that we do
-`;
+import lesson from "../lessons/things-change-do";
 
 export default function Page() {
   const graph: Graph = {
@@ -25,7 +14,7 @@ export default function Page() {
   };
 
   return (
-    <Layout content={content} notes={notes}>
+    <Layout lesson={lesson}>
       <GraphDiagram graph={graph} />
     </Layout>
   );

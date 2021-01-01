@@ -1,9 +1,6 @@
 import Layout from "../components/layout";
-
-const content = `
-What's worth knowing?
-`;
+import lesson from "../lessons/worth-knowing";
 
 export default function Page() {
-  return <Layout content={content} title="WORTH Knowing" />;
+  return <Layout lesson={lesson} title="WORTH Knowing" />;
 }

@@ -4,14 +4,7 @@ import Toggle from "../components/toggle";
 import { Graph, NodeType } from "../types/graph";
 import { addNodes, removeNodes } from "../utils/graphish";
 import { useState } from "react";
-
-const notes = `
-- Product - vision
-- Delivery - flow
-- Technical - engineering, build
-- tension & balance
-- sequence change
-`;
+import lesson from "../lessons/tensions";
 
 export default function Page() {
   const [checked, setChecked] = useState(false);
@@ -37,7 +30,7 @@ export default function Page() {
   };
 
   return (
-    <Layout notes={notes}>
+    <Layout lesson={lesson}>
       <GraphDiagram graph={graph} />
       <Toggle checked={checked} onChange={onChange} />
     </Layout>

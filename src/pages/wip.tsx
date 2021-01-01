@@ -1,9 +1,6 @@
 import Layout from "../components/layout";
-
-const content = `
-- WIP limits
-`;
+import lesson from "../lessons/wip";
 
 export default function Page() {
-  return <Layout content={content} title="Work In Progress" />;
+  return <Layout lesson={lesson} title="Work In Progress" />;
 }
