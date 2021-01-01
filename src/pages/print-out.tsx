@@ -13,7 +13,7 @@ export default function Page() {
         const DynamicComponent = dynamic(
           () =>
             import("../lessons/" + name)
-              .then(() => () => <div>X{name}</div>)
+              .then((mod) => () => <div>{JSON.stringify(mod.default)}</div>)
               .catch(() => () => <div>Cannot find {name}</div>),
           { loading: () => () => <p>loading</p> }
         );
