@@ -1,11 +1,38 @@
 import { Lesson } from "../types/lesson";
+import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
+
+const Wrapper = styled.div`
+  border: 1px solid #000;
+  margin: 0.5em;
+  padding: 0.5em;
+`;
+
+const Notes = styled.div`
+  border: 1px solid #666;
+  margin: 0.5em;
+  padding: 0.5em;
+`;
 
 interface PrintableLessonProps {
+  name: string;
   lesson: Lesson;
 }
 
 export default function PrintableLesson(
   props: PrintableLessonProps
 ): JSX.Element {
-  return <div>{props.lesson.content}</div>;
+  return (
+    <Wrapper>
+      <h2>{props.name}</h2>
+      {props.lesson.content && (
+        <ReactMarkdown children={props.lesson.content} />
+      )}
+      {props.lesson.content && (
+        <Notes>
+          <ReactMarkdown children={props.lesson.notes} />
+        </Notes>
+      )}
+    </Wrapper>
+  );
 }

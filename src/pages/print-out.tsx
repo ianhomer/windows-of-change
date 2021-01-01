@@ -6,16 +6,14 @@ const windowsOfChange = ["goals"];
 export default function Page() {
   return (
     <div className="print-out">
-      X
-      {windowsOfChange.map((name) => (
-        <div>{name}</div>
-      ))}
       {windowsOfChange.map((name) => {
         const DynamicComponent = dynamic(
           () =>
             import("../lessons/" + name)
-              .then((mod) => () => <PrintableLesson lesson={mod.default} />)
-              .catch(() => () => <div>Cannot find {name}</div>),
+              .then((mod) => () => (
+                <PrintableLesson name={name} lesson={mod.default} />
+              ))
+              .catch(() => () => <div>Cannot find lesson {name}</div>),
           { loading: () => () => <p>loading</p> }
         );
         return (
