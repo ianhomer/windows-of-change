@@ -13,13 +13,14 @@ export default function Page() {
         const DynamicComponent = dynamic(
           () =>
             import("../lessons/" + name)
-              .then(() => <div>X{name}</div>)
-              .catch(() => <div>Cannot find {name}</div>),
-          { loading: () => <p>loading</p> }
+              .then(() => () => <div>X{name}</div>)
+              .catch(() => () => <div>Cannot find {name}</div>),
+          { loading: () => () => <p>loading</p> }
         );
         return (
           <div>
             {name} {JSON.stringify(DynamicComponent)}
+            <DynamicComponent />
           </div>
         );
       })}
