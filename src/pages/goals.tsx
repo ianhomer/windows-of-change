@@ -8,7 +8,7 @@ export default function Page() {
       <Stack
         properties={["name", "scale"]}
         layers={[
-          { name: "North Star", scale: "future" },
+          { name: "North Star" },
           { name: "Odyssey", scale: "months" },
           { name: "Quest", scale: "weeks" },
           { name: "Goal", scale: "days" },

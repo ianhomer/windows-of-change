@@ -29,9 +29,13 @@ export default function Stack(props: StackProps): JSX.Element {
     <div>
       {props.layers.map((layer) => (
         <Layer>
-          {properties.map((property) => (
-            <Property count={properties.length}>{layer[property]}</Property>
-          ))}
+          {properties.map((property) => {
+            return (
+              !!layer[property] && (
+                <Property count={properties.length}>{layer[property]}</Property>
+              )
+            );
+          })}
         </Layer>
       ))}
     </div>
