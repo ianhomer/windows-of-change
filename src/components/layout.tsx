@@ -8,6 +8,7 @@ import { Lesson } from "../types/lesson";
 import styled from "styled-components";
 
 interface LayoutProps {
+  assets?: (Asset | string)[];
   title?: string;
   children?: any;
   content?: string;
@@ -26,6 +27,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
   const title = props.title ?? startCase(router.pathname.replace(/[/-]/g, " "));
   const content = props.content ?? props.lesson?.content;
   const notes = props.notes ?? props.lesson?.notes;
+  const assets = props.assets ?? props.lesson?.assets;
 
   return (
     <>
@@ -42,8 +44,8 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <Journey />
         <h1>{title}</h1>
         <div className={styles.container}>
-          {props.lesson?.assets &&
-            props.lesson.assets.map((asset) => {
+          {assets &&
+            assets.map((asset) => {
               const url = typeof asset == "string" ? asset : asset.url;
               const width =
                 typeof asset == "string" ? 300 : asset?.width ?? 300;
