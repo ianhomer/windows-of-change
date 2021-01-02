@@ -12,6 +12,11 @@ const lesson: Lesson = {
 - start of development -> value delivered
 - <https://worth.systems/insight-worthy-metrics>
 `,
+  assets: [
+    {
+      imgur: "a/u3HLZwO",
+    },
+  ],
 };
 
 export default lesson;
