@@ -6,5 +6,3 @@
     yarn dev
 
 Visit <http://localhost:3000>
-
-
