@@ -16,6 +16,7 @@ North Star
 - were you just unlucky?
 - how do OKRs fit in?
 `,
+  assets: ["https://bit.ly/3n6WbHX"],
 };
 
 export default lesson;

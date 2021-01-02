@@ -31,5 +31,10 @@ const lesson: Lesson = {
   - it's about aligning things / changes and actions ; things we do / decisions
     we make, whereever ; however.
 `,
+  assets: [
+    {
+      url: "https://bit.ly/3b3clzE",
+    },
+  ],
 };
 export default lesson;

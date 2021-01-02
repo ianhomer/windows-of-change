@@ -1,10 +1,10 @@
 export interface Lesson {
   content?: string;
   notes?: string;
-  assets?: Asset[];
+  assets?: (Asset | string)[];
 }
 
 export interface Asset {
   url: string;
-  width: number;
+  width?: number;
 }

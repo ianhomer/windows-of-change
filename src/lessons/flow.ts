@@ -12,12 +12,7 @@ const lesson: Lesson = {
 - start of development -> value delivered
 - <https://worth.systems/insight-worthy-metrics>
 `,
-  assets: [
-    {
-      url: "https://i.imgur.com/GbNyyDc.jpeg",
-      width: 200,
-    },
-  ],
+  assets: ["https://bit.ly/2KVCDZR"],
 };
 
 export default lesson;

@@ -12,6 +12,7 @@ const lesson: Lesson = {
 - safeguarding
 - frame decisions that can be made autonomously / rapidly
 `,
+  assets: ["https://bit.ly/2KXAMnx"],
 };
 
 export default lesson;

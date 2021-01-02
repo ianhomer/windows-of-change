@@ -29,6 +29,12 @@ export default function PrintableLesson(
 ): JSX.Element {
   return (
     <Wrapper>
+      {props.lesson?.assets &&
+        props.lesson.assets.map((asset) => {
+          const url = typeof asset == "string" ? asset : asset.url;
+          const width = typeof asset == "string" ? 200 : asset?.width ?? 200;
+          return <Image width={width} src={url} />;
+        })}
       <h2>{props.name}</h2>
       {props.lesson?.content && (
         <ReactMarkdown children={props.lesson.content} />
@@ -38,10 +44,6 @@ export default function PrintableLesson(
           <ReactMarkdown children={props.lesson.notes} />
         </Notes>
       )}
-      {props.lesson?.assets &&
-        props.lesson.assets.map((asset) => (
-          <Image width={asset.width} src={asset.url} />
-        ))}
     </Wrapper>
   );
 }
