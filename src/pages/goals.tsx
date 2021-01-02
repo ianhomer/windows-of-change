@@ -4,7 +4,7 @@ import Stack from "../components/stack";
 
 export default function Page() {
   return (
-    <Layout lesson={lesson}>
+    <Layout notes={lesson.notes}>
       <Stack
         properties={["name", "scale"]}
         layers={[
