@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import startCase from "lodash/startCase";
 import { Asset, Lesson } from "../types/lesson";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 interface LayoutProps {
   assets?: (Asset | string)[];
@@ -14,6 +15,7 @@ interface LayoutProps {
   content?: string;
   notes?: string;
   lesson?: Lesson;
+  transition?: (direction: number) => void;
 }
 
 const Image = styled.img`
@@ -28,6 +30,21 @@ export default function Layout(props: LayoutProps): JSX.Element {
   const content = props.content ?? props.lesson?.content;
   const notes = props.notes ?? props.lesson?.notes;
   const assets = props.assets ?? props.lesson?.assets;
+
+  useEffect(() => {
+    const onKeyUp = (e: any) => {
+      console.log(e);
+      const direction = e.code == "ArrowRight" ? 1 : 0;
+      if (props.transition) {
+        props.transition(direction);
+      } else {
+        // next / previous
+        console.log("TODO : next / previous page");
+      }
+    };
+    window.addEventListener("keyup", onKeyUp);
+    return () => window.removeEventListener("keyup", onKeyUp);
+  }, []);
 
   return (
     <>

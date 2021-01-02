@@ -1,12 +1,20 @@
 import Layout from "../components/layout";
 import lesson from "../lessons/goals";
 import Stack from "../components/stack";
+import { useState } from "react";
 
 export default function Page() {
+  const [properties, setProperties] = useState(["name"]);
+
+  const transition = (direction: number) => {
+    console.log(`Goals : ${direction}`);
+    setProperties(["name", "scale"]);
+    return 1;
+  };
   return (
-    <Layout notes={lesson.notes}>
+    <Layout notes={lesson.notes} transition={transition}>
       <Stack
-        properties={["name", "scale"]}
+        properties={properties}
         layers={[
           { name: "North Star" },
           { name: "Odyssey", scale: "months" },
