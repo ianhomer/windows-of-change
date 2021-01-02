@@ -4,7 +4,7 @@ import Journey from "./journey";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import startCase from "lodash/startCase";
-import { Lesson } from "../types/lesson";
+import { Asset, Lesson } from "../types/lesson";
 import styled from "styled-components";
 
 interface LayoutProps {

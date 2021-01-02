@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface StackProps {
-  layers: Record<"name" | "scale", string>[];
-  properties: string[];
+  layers: { [key: string]: string }[];
+  properties?: string[];
 }
 
 const Layer = styled.div`
@@ -31,7 +31,7 @@ export default function Stack(props: StackProps): JSX.Element {
         <Layer>
           {properties.map((property) => {
             return (
-              !!layer[property] && (
+              property in layer && (
                 <Property count={properties.length}>{layer[property]}</Property>
               )
             );
