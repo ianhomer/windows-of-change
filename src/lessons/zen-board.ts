@@ -7,6 +7,7 @@ const lesson: Lesson = {
 `,
   notes: `
 - **diagram**
+- there are only 3 states - todo / doing / done
 `,
 };
 
