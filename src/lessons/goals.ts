@@ -1,13 +1,8 @@
 import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
-  content: `
-- goals
-- work
-- change
-- things change
-`,
   notes: `
+- North Star ; Odyssey ; Quest ; Goal ; Change ; Task
 - layer from north star alignment
 - breaking down changes
 - sequencing changes

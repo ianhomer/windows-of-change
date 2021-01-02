@@ -5,7 +5,7 @@ import lesson from "../lessons/north-star";
 export default function Page() {
   return (
     <Layout assets={lesson.assets} notes={lesson.notes}>
-      <Stack layers={["North Star"]} />
+      <Stack layers={["north star"]} />
     </Layout>
   );
 }
