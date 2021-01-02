@@ -13,7 +13,7 @@ const lesson: Lesson = {
 - what does perfect local dev look like
 - dream set up
 
-| thing | 1  | 2  | 3  | 4  |
+| thing | High Performer | Medium Performer  | Low Performer  |
 | ----- | -- | -- | -- | -- |
 | a     | a1 | a2 | a3 | a4 |
 | b     | b1 | b2 | b3 | b4 |

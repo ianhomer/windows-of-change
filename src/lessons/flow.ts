@@ -8,6 +8,10 @@ const lesson: Lesson = {
   - goals providing alignment for changes
   - dos increasing flow of changes
 `,
+  notes: `
+- start of development -> value delivered
+- <https://worth.systems/insight-worthy-metrics>
+`,
 };
 
 export default lesson;
