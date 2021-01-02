@@ -7,7 +7,8 @@ North Star
   notes: `
 - alignment
 - zoom in
-- show layers north star -> task
+- **diagram** - show layers north star -> task ; build this up over next few
+  slides
 - focus
 - how do you know what you've done is good?
 - how do you know when your decision was a good one?

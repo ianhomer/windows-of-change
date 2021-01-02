@@ -20,6 +20,16 @@ thx Woody Zuill
 - create stack component
 - show layers of truth
 - use this to map into other layer - values / principles / practices
+- stack 1
+  - value
+  - metrics
+  - visualisation
+  - bets
+- stack 2
+  - North star
+  - Goals
+  - Change
+  - Task
 `,
 };
 
