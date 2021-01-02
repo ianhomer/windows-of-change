@@ -4,7 +4,7 @@ const lesson: Lesson = {
   notes: `
 - values
 - principles
-- practises
+- practices
 `,
 };
 

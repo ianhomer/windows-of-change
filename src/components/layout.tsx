@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import startCase from "lodash/startCase";
 import { Lesson } from "../types/lesson";
+import styled from "styled-components";
 
 interface LayoutProps {
   title?: string;
@@ -13,6 +14,12 @@ interface LayoutProps {
   notes?: string;
   lesson?: Lesson;
 }
+
+const Image = styled.img`
+  position: absolute;
+  left: 0;
+  border: 1px solid #999;
+`;
 
 export default function Layout(props: LayoutProps): JSX.Element {
   const router = useRouter();
@@ -35,6 +42,13 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <Journey />
         <h1>{title}</h1>
         <div className={styles.container}>
+          {props.lesson?.assets &&
+            props.lesson.assets.map((asset) => {
+              const url = typeof asset == "string" ? asset : asset.url;
+              const width =
+                typeof asset == "string" ? 300 : asset?.width ?? 300;
+              return <Image width={width} src={url} />;
+            })}
           {content && <ReactMarkdown children={content} />}
           {props.children && <>{props.children}</>}
           {notes && (
