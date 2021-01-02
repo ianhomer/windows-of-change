@@ -8,7 +8,11 @@ export default function Page() {
 
   const transition = (direction: number) => {
     console.log(`Goals : ${direction}`);
-    setProperties(["name", "scale"]);
+    if (direction == -1) {
+      setProperties(["name"]);
+    } else {
+      setProperties(["name", "scale"]);
+    }
     return 1;
   };
   return (

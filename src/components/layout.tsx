@@ -34,7 +34,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
   useEffect(() => {
     const onKeyUp = (e: any) => {
       console.log(e);
-      const direction = e.code == "ArrowRight" ? 1 : 0;
+      const direction = e.code == "ArrowLeft" ? -1 : 1;
       if (props.transition) {
         props.transition(direction);
       } else {
