@@ -12,6 +12,7 @@ const lesson: Lesson = {
 - everything we do helps change the thing we care for
 - the thing we value can provide more value by change that we do
 - little dos and us doers
+- change - code / asset change / state change +
 `,
 };
 

@@ -9,8 +9,15 @@ const lesson: Lesson = {
 `,
 
   notes: `
+- create maturity model **diagram**
 - what does perfect local dev look like
 - dream set up
+
+| thing | 1  | 2  | 3  | 4  |
+| ----- | -- | -- | -- | -- |
+| a     | a1 | a2 | a3 | a4 |
+| b     | b1 | b2 | b3 | b4 |
+
 `,
 };
 

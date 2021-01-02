@@ -19,7 +19,8 @@ const lesson: Lesson = {
   - task / decision / improve / pay back debt / hour
 - mindfully take debt ; mindfully choose when to pay it back - pay off credit
   card bill every month.
-- change = change of state; messages to user ; code changes ; platform change
+- change = change of state; messages to user ; code changes ; platform change ;
+    system
   - **diagram** thing / state / signals out / platform / environment / layers ;
     where can you effect change?
 - task to make change or make change easier

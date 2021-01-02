@@ -7,7 +7,7 @@ const lesson: Lesson = {
 - guardrails
 `,
   notes: `
-- diagram of guardrails - work taking place within guardrails
+- **diagram** of guardrails - work taking place within guardrails
 - protecting from danger
 - safeguarding
 - frame decisions that can be made autonomously / rapidly
