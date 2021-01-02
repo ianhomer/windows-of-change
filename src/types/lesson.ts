@@ -5,7 +5,6 @@ export interface Lesson {
 }
 
 export interface Asset {
-  url?: string;
-  width?: number;
-  imgur?: string;
+  url: string;
+  width: number;
 }

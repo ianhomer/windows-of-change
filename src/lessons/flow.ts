@@ -14,7 +14,8 @@ const lesson: Lesson = {
 `,
   assets: [
     {
-      imgur: "a/u3HLZwO",
+      url: "https://i.imgur.com/GbNyyDc.jpeg",
+      width: 200,
     },
   ],
 };

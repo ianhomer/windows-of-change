@@ -15,6 +15,7 @@ const Notes = styled.div`
 `;
 
 const Image = styled.img`
+  border: 1px solid #999;
   float: right;
 `;
 
@@ -38,29 +39,9 @@ export default function PrintableLesson(
         </Notes>
       )}
       {props.lesson?.assets &&
-        props.lesson.assets.map((asset) => {
-          if (asset.imgur) {
-            return (
-              <>
-                <blockquote
-                  className="imgur-embed-pub"
-                  lang="en"
-                  data-id={asset.imgur}
-                  data-context="false"
-                >
-                  <a href={"//imgur.com/" + asset.imgur}></a>
-                </blockquote>
-                <script
-                  async
-                  src="//s.imgur.com/min/embed.js"
-                  charSet="utf-8"
-                ></script>
-              </>
-            );
-          } else {
-            return <Image width={asset.width} src={asset.url} />;
-          }
-        })}
+        props.lesson.assets.map((asset) => (
+          <Image width={asset.width} src={asset.url} />
+        ))}
     </Wrapper>
   );
 }
