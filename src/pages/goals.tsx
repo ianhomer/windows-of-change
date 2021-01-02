@@ -7,7 +7,6 @@ export default function Page() {
   const [properties, setProperties] = useState(["name"]);
 
   const transition = (direction: number) => {
-    console.log(`Goals : ${direction}`);
     if (direction == -1) {
       setProperties(["name"]);
     } else {
