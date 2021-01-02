@@ -14,6 +14,10 @@ const Notes = styled.div`
   padding: 0.5em;
 `;
 
+const Image = styled.img`
+  float: right;
+`;
+
 interface PrintableLessonProps {
   name: string;
   lesson: Lesson;
@@ -33,6 +37,10 @@ export default function PrintableLesson(
           <ReactMarkdown children={props.lesson.notes} />
         </Notes>
       )}
+      {props.lesson?.assets &&
+        props.lesson.assets.map((asset) => (
+          <Image width={asset.width} src={asset.url} />
+        ))}
     </Wrapper>
   );
 }
