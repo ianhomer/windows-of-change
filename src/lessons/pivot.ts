@@ -2,7 +2,7 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-Pivot
+- **diagram** of pivot point
 `,
 
   notes: `

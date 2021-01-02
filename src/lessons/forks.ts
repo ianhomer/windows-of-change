@@ -8,16 +8,9 @@ const lesson: Lesson = {
 - competition
   - vim vs neovim
   - flash vs HTML
-  - Jenkins vs HUdsun
+  - Jenkins vs Hudsun
   - progrssive enhancement vs contextual server side rendering
   - 2 independently created plane auto pilot systems
-`,
-
-  notes: `
-- diagram of multiplVe streams of work + inter-coordination
-- how siloing creates extra work to do
-  - to compensate misalignment
-- waste
 `,
 };
 
