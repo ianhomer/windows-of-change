@@ -6,6 +6,7 @@ const lesson: Lesson = {
 - Low wip
 - Alignment
 - Maps to guide
+- Do small things
 `,
   notes: `
 - Being able to make change rapidly - no matter how small
