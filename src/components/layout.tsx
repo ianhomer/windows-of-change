@@ -7,6 +7,8 @@ import startCase from "lodash/startCase";
 import { Asset, Lesson } from "../types/lesson";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { travel } from "../utils/journeyish";
+import journey from "../journeys/windows-of-change";
 
 interface LayoutProps {
   assets?: (Asset | string)[];
@@ -15,7 +17,7 @@ interface LayoutProps {
   content?: string;
   notes?: string;
   lesson?: Lesson;
-  transition?: (direction: number) => void;
+  transition?: (direction: number) => boolean;
 }
 
 const Image = styled.img`
@@ -34,16 +36,22 @@ export default function Layout(props: LayoutProps): JSX.Element {
 
   useEffect(() => {
     const onKeyUp = (e: any) => {
+      console.log(e);
       if (e.key == "n") {
         setNotesVisible(!notesVisible);
       } else {
         const direction = e.key == "ArrowLeft" ? -1 : 1;
-        if (props.transition) {
-          props.transition(direction);
-        } else {
-          // next / previous
-          console.log("TODO : next / previous page");
+        const handled = props.transition && props.transition(direction);
+        if (!handled) {
+          const nextStep = travel(
+            journey,
+            router.pathname.substring(1),
+            direction
+          );
+          router.push("/" + nextStep);
+          console.log(nextStep);
         }
+        console.log("B" + handled);
       }
     };
     window.addEventListener("keyup", onKeyUp);

@@ -1,4 +1,4 @@
-import travel from "../../src/utils/journeyish";
+import { travel } from "../../src/utils/journeyish";
 
 const journey = ["step1", "step2", "step3"];
 

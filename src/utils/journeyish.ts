@@ -1,4 +1,4 @@
-export default function travel(
+export function travel(
   steps: string[],
   current: string,
   direction: number
@@ -21,3 +21,16 @@ export default function travel(
   }
   return steps[nextIndex];
 }
+
+export const transition = (
+  position: number,
+  setPosition: (position: number) => void
+) => (direction: number) => {
+  console.log("A" + position);
+  const nextPosition = position + direction;
+  if (nextPosition < 0 || nextPosition > 1) {
+    return false;
+  }
+  setPosition(position + direction);
+  return true;
+};
