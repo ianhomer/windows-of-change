@@ -39,7 +39,8 @@ export default function Layout(props: LayoutProps): JSX.Element {
       if (e.key == "n") {
         setNotesVisible(!notesVisible);
       } else {
-        const direction = e.key == "ArrowLeft" ? -1 : 1;
+        const direction =
+          e.key == "ArrowLeft" ? -1 : e.key == "ArrowRight" ? 1 : 0;
         const handled = props.transition && props.transition(direction);
         if (!handled) {
           const nextStep = travel(
