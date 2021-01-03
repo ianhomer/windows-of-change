@@ -2,31 +2,23 @@ import Layout from "../components/layout";
 import lesson from "../lessons/goals";
 import Stack from "../components/stack";
 import { useEffect, useState } from "react";
+import { transition } from "../utils/journeyish";
+
+const positions = [{ properties: ["name"] }, { properties: ["name", "scale"] }];
 
 export default function Page() {
   const [position, setPosition] = useState(0);
   const [properties, setProperties] = useState(["name"]);
 
   useEffect(() => {
-    if (position == 0) {
-      setProperties(["name"]);
-    } else {
-      setProperties(["name", "scale"]);
-    }
+    setProperties(positions[position].properties);
   }, [position]);
 
-  function handler(direction: number): boolean {
-    let changed = false;
-    setPosition((position) => {
-      const nextPosition = position + direction;
-      changed = nextPosition > -1 && nextPosition < 2;
-      return changed ? nextPosition : position;
-    });
-    return changed;
-  }
-
   return (
-    <Layout notes={lesson.notes} transition={handler}>
+    <Layout
+      notes={lesson.notes}
+      transition={transition(positions.length, setPosition)}
+    >
       <Stack
         properties={properties}
         layers={[
