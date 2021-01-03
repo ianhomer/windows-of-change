@@ -36,7 +36,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
 
   useEffect(() => {
     const onKeyUp = (e: any) => {
-      console.log(e);
       if (e.key == "n") {
         setNotesVisible(!notesVisible);
       } else {
@@ -49,9 +48,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
             direction
           );
           router.push("/" + nextStep);
-          console.log(nextStep);
         }
-        console.log("B" + handled);
       }
     };
     window.addEventListener("keyup", onKeyUp);

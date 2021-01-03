@@ -8,7 +8,6 @@ export default function Page() {
   const [properties, setProperties] = useState(["name"]);
 
   useEffect(() => {
-    console.log("X" + position);
     if (position == 0) {
       setProperties(["name"]);
     } else {
@@ -17,15 +16,13 @@ export default function Page() {
   }, [position]);
 
   function handler(direction: number) {
-    let nextPosition;
+    let changed;
     setPosition((position) => {
-      nextPosition = position + direction;
-      return nextPosition;
+      const nextPosition = position + direction;
+      changed = nextPosition > -1 && nextPosition < 2;
+      return changed ? nextPosition : position;
     });
-    if (nextPosition < 0 || nextPosition > 1) {
-      return false;
-    }
-    return true;
+    return changed;
   }
 
   return (
