@@ -17,7 +17,7 @@ const positions = [
     quote: (
       <Quote who="Joe Wicks">
         Don't look too far into the future, just look at tomorrow. One day at a
-        time
+        time.
       </Quote>
     ),
   },
