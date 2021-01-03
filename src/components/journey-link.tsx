@@ -6,9 +6,6 @@ interface JourneyLinkProps {
   name: string;
 }
 
-//  background-color: ${props => {
-//    useRouter().pathname !== props.name ? '#ccc' : '#eee';
-//  }};
 const StyledLink = styled.a<{ active: boolean }>`
   background-color: ${(props) => (props.active ? "#000" : "auto")};
   display: block;
@@ -23,7 +20,6 @@ const StyledLink = styled.a<{ active: boolean }>`
 
 export default function JourneyLink(props: JourneyLinkProps): JSX.Element {
   const router = useRouter();
-
   const path = "/" + props.name;
 
   return (
