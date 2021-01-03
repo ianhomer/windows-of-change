@@ -4,8 +4,8 @@ const lesson: Lesson = {
   content: `
 - Mob
 - Low wip
-- Alignment
-- Maps to guide
+- Align goals
+- Guided by maps
 - Do small things
 `,
   notes: `

@@ -2,7 +2,7 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-What is worth knowing?
+What is WORTH knowing?
 `,
 };
 
