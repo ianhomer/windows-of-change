@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import startCase from "lodash/startCase";
 import { Asset, Lesson } from "../types/lesson";
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface LayoutProps {
   assets?: (Asset | string)[];
@@ -25,6 +25,7 @@ const Image = styled.img`
 `;
 
 export default function Layout(props: LayoutProps): JSX.Element {
+  const [notesVisible, setNotesVisible] = useState(false);
   const router = useRouter();
   const title = props.title ?? startCase(router.pathname.replace(/[/-]/g, " "));
   const content = props.content ?? props.lesson?.content;
@@ -33,17 +34,21 @@ export default function Layout(props: LayoutProps): JSX.Element {
 
   useEffect(() => {
     const onKeyUp = (e: any) => {
-      const direction = e.code == "ArrowLeft" ? -1 : 1;
-      if (props.transition) {
-        props.transition(direction);
+      if (e.key == "n") {
+        setNotesVisible(!notesVisible);
       } else {
-        // next / previous
-        console.log("TODO : next / previous page");
+        const direction = e.key == "ArrowLeft" ? -1 : 1;
+        if (props.transition) {
+          props.transition(direction);
+        } else {
+          // next / previous
+          console.log("TODO : next / previous page");
+        }
       }
     };
     window.addEventListener("keyup", onKeyUp);
     return () => window.removeEventListener("keyup", onKeyUp);
-  }, []);
+  }, [notesVisible]);
 
   return (
     <>
@@ -69,7 +74,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
             })}
           {content && <ReactMarkdown children={content} />}
           {props.children && <>{props.children}</>}
-          {notes && (
+          {notesVisible && notes && (
             <div className={styles.notes}>
               <ReactMarkdown children={notes} />
             </div>
