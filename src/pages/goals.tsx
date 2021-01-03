@@ -6,9 +6,11 @@ import { transition } from "../utils/journeyish";
 
 const positions = [
   { properties: ["name"] },
-  { properties: ["name", "scale"] },
+  { properties: ["name", "what1"] },
+  { properties: ["name", "what2"] },
   { properties: ["name", "what"] },
   { properties: ["name", "aka"] },
+  { properties: ["name", "scale"] },
   { properties: ["name", "what", "aka", "scale"] },
 ];
 
@@ -39,11 +41,20 @@ export default function Page() {
           { name: "Goal", what: "outcome", aka: "Epic", scale: "days" },
           {
             name: "Change",
+            what1: "value",
+            what2: "promise of value",
             what: "output",
             aka: "Story ; Bug ; Task",
             scale: "hours",
           },
-          { name: "Task", what: "do", aka: "Sub-task", scale: "minutes" },
+          {
+            name: "Task",
+            what1: "do",
+            what2: "do",
+            what: "do",
+            aka: "Sub-task",
+            scale: "minutes",
+          },
         ]}
       />
     </Layout>
