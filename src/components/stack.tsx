@@ -8,7 +8,7 @@ interface StackProps {
 const Layer = styled.div`
   display: flex;
   align-items: stretch;
-  width: 30em;
+  width: 60em;
   padding: 0em;
   margin: 0em;
 `;
@@ -22,22 +22,36 @@ const Property = styled.div<{ count: number }>`
     return 100 / props.count;
   }}%;
 `;
+Property.defaultProps = { count: 1 };
+
+const EmptyProperty = styled.div<{ count: number }>`
+  border: 1px solid auto;
+  padding: 1em;
+  margin: 1em;
+  width: ${(props) => {
+    return 100 / props.count;
+  }}%;
+`;
+
+EmptyProperty.defaultProps = { count: 1 };
 
 export default function Stack(props: StackProps): JSX.Element {
   const properties = props.properties ?? ["name"];
   return (
     <div>
+      <Property>sky</Property>
       {props.layers.map((layer) => (
         <Layer>
           {properties.map((property) => {
-            return (
-              property in layer && (
-                <Property count={properties.length}>{layer[property]}</Property>
-              )
+            return property in layer ? (
+              <Property count={properties.length}>{layer[property]}</Property>
+            ) : (
+              <EmptyProperty count={properties.length} />
             );
           })}
         </Layer>
       ))}
+      <Property>ground</Property>
     </div>
   );
 }
