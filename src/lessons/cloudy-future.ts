@@ -2,13 +2,10 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-Cloudy Future
-
-Now
-
-Validate Value
-
-Distant Unclear
+- Cloudy Future
+- Now
+- Validate Value
+- Distant Unclear
 `,
   notes: `
 - create diagram

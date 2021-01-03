@@ -7,6 +7,9 @@ const lesson: Lesson = {
 - Alignment
 - Maps to guide
 `,
+  notes: `
+- Being able to make change rapidly - no matter how small
+`,
 };
 
 export default lesson;

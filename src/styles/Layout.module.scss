@@ -8,6 +8,15 @@ $background: #0e253a;
   align-items: center;
 }
 
+.content {
+  font-size: 2em;
+}
+
+.container li {
+  list-style-type: none;
+  margin: 1em;
+}
+
 .notes {
   position: absolute;
   top: 0;

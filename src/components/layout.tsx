@@ -78,7 +78,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
                 typeof asset == "string" ? 300 : asset?.width ?? 300;
               return <Image width={width} src={url} />;
             })}
-          {content && <ReactMarkdown children={content} />}
+          {content && (
+            <ReactMarkdown className={styles.content} children={content} />
+          )}
           {props.children && <>{props.children}</>}
           {notesVisible && notes && (
             <div className={styles.notes}>

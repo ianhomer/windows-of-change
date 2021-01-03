@@ -7,6 +7,10 @@ interface StackProps {
   properties?: string[];
 }
 
+const StackDiv = styled.div`
+  font-size: 1em;
+`;
+
 const Layer = styled.div`
   display: flex;
   align-items: stretch;
@@ -44,7 +48,7 @@ const Bound = styled.div`
 export default function Stack(props: StackProps): JSX.Element {
   const properties = props.properties ?? ["name"];
   return (
-    <div>
+    <StackDiv>
       <Bound>{props.sky ?? "sky"}</Bound>
       {props.layers.map((layer) => (
         <Layer>
@@ -58,6 +62,6 @@ export default function Stack(props: StackProps): JSX.Element {
         </Layer>
       ))}
       <Bound>{props.ground ?? "ground"}</Bound>
-    </div>
+    </StackDiv>
   );
 }
