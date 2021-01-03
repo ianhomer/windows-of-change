@@ -8,8 +8,6 @@ export default function Page() {
   const [position, setPosition] = useState(0);
   const [properties, setProperties] = useState(["name"]);
 
-  const transitionHandler = transition(position, setPosition);
-
   useEffect(() => {
     console.log("X" + position);
     if (position == 0) {
@@ -20,7 +18,7 @@ export default function Page() {
   }, [position]);
 
   return (
-    <Layout notes={lesson.notes} transition={transitionHandler}>
+    <Layout notes={lesson.notes} transition={transition(position, setPosition)}>
       {position}
       <Stack
         properties={properties}
