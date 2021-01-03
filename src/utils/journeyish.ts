@@ -21,15 +21,3 @@ export function travel(
   }
   return steps[nextIndex];
 }
-
-export const transition = (
-  position: number,
-  setPosition: (position: number) => void
-) => (direction: number) => {
-  const nextPosition = position + direction;
-  if (nextPosition < 0 || nextPosition > 1) {
-    return false;
-  }
-  setPosition(position + direction);
-  return true;
-};

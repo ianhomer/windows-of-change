@@ -2,7 +2,6 @@ import Layout from "../components/layout";
 import lesson from "../lessons/goals";
 import Stack from "../components/stack";
 import { useEffect, useState } from "react";
-import { transition } from "../utils/journeyish";
 
 export default function Page() {
   const [position, setPosition] = useState(0);
@@ -17,9 +16,20 @@ export default function Page() {
     }
   }, [position]);
 
+  function handler(direction: number) {
+    let nextPosition;
+    setPosition((position) => {
+      nextPosition = position + direction;
+      return nextPosition;
+    });
+    if (nextPosition < 0 || nextPosition > 1) {
+      return false;
+    }
+    return true;
+  }
+
   return (
-    <Layout notes={lesson.notes} transition={transition(position, setPosition)}>
-      {position}
+    <Layout notes={lesson.notes} transition={handler}>
       <Stack
         properties={properties}
         layers={[
