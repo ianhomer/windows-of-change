@@ -5,6 +5,7 @@ const journey: string[] = [
   "north-star",
   "goals",
   "cloudy-future",
+  "chess",
   "maps",
   "pivot",
   "silos",

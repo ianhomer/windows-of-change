@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import gfm from "remark-gfm";
 
 interface QuoteProps {
   children: string;
@@ -28,15 +29,16 @@ const Who = styled.div`
   margin: 0;
   padding-top: 1em;
   z-index: 1;
-  margin-left: 15em;
-  padding-left: 15em;
+  margin-left: 8em;
+  padding-left: 6em;
+  width: 40em;
 `;
 
 export default function Quote(props: QuoteProps): JSX.Element {
   return (
     <QuoteContainer>
       <Words>
-        <ReactMarkdown>{props.children}</ReactMarkdown>
+        <ReactMarkdown plugins={[gfm]}>{props.children}</ReactMarkdown>
       </Words>
       <Who>{props.who}</Who>
     </QuoteContainer>
