@@ -15,8 +15,8 @@ export default function Page() {
     }
   }, [position]);
 
-  function handler(direction: number) {
-    let changed;
+  function handler(direction: number): boolean {
+    let changed = false;
     setPosition((position) => {
       const nextPosition = position + direction;
       changed = nextPosition > -1 && nextPosition < 2;
