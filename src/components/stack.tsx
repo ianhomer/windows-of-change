@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 interface StackProps {
   layers: { [key: string]: string }[];
+  sky?: string;
+  ground?: string;
   properties?: string[];
 }
 
@@ -35,11 +37,15 @@ const EmptyProperty = styled.div<{ count: number }>`
 
 EmptyProperty.defaultProps = { count: 1 };
 
+const Bound = styled.div`
+  text-align: center;
+`;
+
 export default function Stack(props: StackProps): JSX.Element {
   const properties = props.properties ?? ["name"];
   return (
     <div>
-      <Property>sky</Property>
+      <Bound>{props.sky ?? "sky"}</Bound>
       {props.layers.map((layer) => (
         <Layer>
           {properties.map((property) => {
@@ -51,7 +57,7 @@ export default function Stack(props: StackProps): JSX.Element {
           })}
         </Layer>
       ))}
-      <Property>ground</Property>
+      <Bound>{props.ground ?? "ground"}</Bound>
     </div>
   );
 }
