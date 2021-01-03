@@ -30,7 +30,7 @@ export default function Page() {
       <Stack
         properties={properties}
         layers={[
-          { name: "North Star", what: "value" },
+          { name: "North Star", what: "value", scale: "years" },
           {
             name: "Odyssey",
             what: "alignment",
