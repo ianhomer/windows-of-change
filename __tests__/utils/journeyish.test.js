@@ -22,10 +22,15 @@ it("travels backward to beginning", () => {
   expect(travel(journey, "step1", -1)).toBe("step1");
 });
 
-it("travels forward from nowhere", () => {
-  expect(travel(journey, "nowhere", 1)).toBe("step3");
+it("travels forward from unrecognised step", () => {
+  expect(travel(journey, "unrecognised-step", 1)).toBe("step3");
 });
 
-it("travels backward from nowhere beginning", () => {
-  expect(travel(journey, "nowhere", -1)).toBe("step1");
+it("travels either direction from nowhere starts at beginning", () => {
+  expect(travel(journey, "", 1)).toBe("step1");
+  expect(travel(journey, "", -1)).toBe("step1");
+});
+
+it("travels backward from unrecognised step to beginning", () => {
+  expect(travel(journey, "unrecognised-step", -1)).toBe("step1");
 });
