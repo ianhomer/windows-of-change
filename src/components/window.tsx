@@ -16,7 +16,13 @@ function getStyles(
 ): React.CSSProperties {
   const transform = `translate3d(${left}px, ${top}px, 0)`;
   return {
+    resize: "both",
+    borderWidth: "5px",
+    borderColor: "#000",
+    borderStyle: "solid",
     position: "absolute",
+    overflow: "hidden",
+    borderRadius: "1em",
     transform,
     WebkitTransform: transform,
     opacity: isDragging ? 0 : 1,
