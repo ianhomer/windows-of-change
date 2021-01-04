@@ -26,6 +26,7 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@types/d3": "^6.2.0",
     "@types/styled-components": "^5.1.7",
     "d3": "^6.3.1",

@@ -1,6 +1,7 @@
 import styles from "../styles/Window.module.scss";
 import { useDrag, DragSourceMonitor } from "react-dnd";
 import { Delta, Draggable } from "../types/draggable";
+import Slider from "@material-ui/core/Slider";
 import { useState } from "react";
 
 interface WindowProps {
@@ -12,26 +13,34 @@ interface WindowProps {
 function getStyles(
   left: number,
   top: number,
+  opacity: number,
   isDragging: boolean
 ): React.CSSProperties {
   const transform = `translate3d(${left}px, ${top}px, 0)`;
   return {
     resize: "both",
+    padding: "7px",
     borderWidth: "5px",
     borderColor: "#000",
     borderStyle: "solid",
     position: "absolute",
     overflow: "hidden",
     borderRadius: "1em",
+    color: "#000",
     transform,
     WebkitTransform: transform,
-    opacity: isDragging ? 0 : 1,
+    opacity: isDragging ? 0 : opacity,
   };
 }
 
 export default function Window(props: WindowProps): JSX.Element {
   const [left, setLeft] = useState(props.left ?? 0);
   const [top, setTop] = useState(props.top ?? 0);
+  const [opacity, setOpacity] = useState(1);
+
+  const handleOpacityChange = (event: any, newValue: number) => {
+    setOpacity(newValue);
+  };
 
   const move = (delta: Delta) => {
     setLeft(Math.round(left + delta.x));
@@ -49,8 +58,16 @@ export default function Window(props: WindowProps): JSX.Element {
     <div
       ref={drag}
       className={styles.window}
-      style={getStyles(left, top, isDragging)}
+      style={getStyles(left, top, opacity, isDragging)}
     >
+      <Slider
+        value={opacity}
+        onChange={handleOpacityChange}
+        aria-labelledby="continuous-slider"
+        min={0.2}
+        max={1}
+        step={0.01}
+      />
       {props.children}
     </div>
   );

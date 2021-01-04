@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 export default function Journey(): JSX.Element {
   return (
     <Wrapper>
-      {windowsOfChange.map((name) => (
-        <JourneyLink name={name} />
+      {windowsOfChange.map((name, i) => (
+        <JourneyLink key={i} name={name} />
       ))}
     </Wrapper>
   );
