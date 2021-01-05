@@ -6,10 +6,31 @@ import Mailbox from "../components/mailbox";
 import InstantMessager from "../components/instant-messager";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { useEffect, useState } from "react";
+import { transition } from "../utils/journeyish";
+
+const windowTitles = [
+  "Weather",
+  "Stocks",
+  "Something Else",
+  "+1",
+  "+2",
+  "Fire alarm in 5 minutes",
+];
 
 export default function Page() {
+  const [titles, setTitles] = useState<string[]>([]);
+  const [position, setPosition] = useState(0);
+
+  useEffect(() => {
+    setTitles((titles) => [...titles, windowTitles[position]]);
+  }, [position]);
+
   return (
-    <Layout lesson={lesson}>
+    <Layout
+      lesson={lesson}
+      transition={transition(windowTitles.length, setPosition)}
+    >
       <DndProvider backend={HTML5Backend}>
         <Board>
           <Window left={100} top={100}>
@@ -24,6 +45,14 @@ export default function Page() {
           <Window left={500} top={300}>
             Reminders : Timesheets!
           </Window>
+          {titles.map((title) => (
+            <Window
+              left={600 + Math.random() * 400}
+              top={200 + Math.random() * 400}
+            >
+              {title}
+            </Window>
+          ))}
         </Board>
       </DndProvider>
     </Layout>
