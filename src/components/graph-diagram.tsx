@@ -27,12 +27,13 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .data(props.graph.links)
       .join("line")
       .classed("link", true)
-      .attr("stroke-width", (d: Link) => d.size ?? 1);
+      .attr("stroke-width", (d: Link) => d.size ?? 2);
 
     const node = svg
       .selectAll<SVGCircleElement, Node>(".node")
       .data(props.graph.nodes)
       .join("circle")
+      .raise()
       .attr("r", (d: Node) => d?.size ?? 10)
       .attr("data-type", (d: Node) => d?.type ?? "unknown")
       .classed("node", true)

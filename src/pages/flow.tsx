@@ -15,8 +15,9 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
   return {
     nodes: [
       { id: "thing-1", fx: 500, fy: 200, type: NodeType.Thing, size: 40 },
-      { id: "change-1", type: NodeType.Change, size: 20 },
-      { id: "change-2", type: NodeType.Change, size: 20 },
+      { id: "change-1", fx: 400, fy: 200, type: NodeType.Change, size: 20 },
+      { id: "change-2", fx: 300, fy: 200, type: NodeType.Change, size: 20 },
+      { id: "change-3", fx: 200, fy: 200, type: NodeType.Change, size: 20 },
       ...(position.dos
         ? [
             { id: "do-1", type: NodeType.Do, size: 10 },
@@ -26,11 +27,12 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
         : []),
     ],
     links: [
-      { target: "change-1", source: "thing-1", size: 4 },
-      { target: "change-2", source: "thing-1" },
+      { target: "change-1", source: "thing-1" },
+      { target: "change-2", source: "change-1" },
+      { target: "change-3", source: "change-2" },
       ...(position.dos
         ? [
-            { target: "do-1", source: "change-1", size: 3 },
+            { target: "do-1", source: "change-1" },
             { target: "do-2", source: "change-1" },
             { target: "do-3", source: "change-2" },
           ]
