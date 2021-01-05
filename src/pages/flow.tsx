@@ -14,11 +14,11 @@ export default function Page() {
       { id: "do-3", type: NodeType.Do, size: 10 },
     ],
     links: [
-      { source: "change-1", target: "thing-1" },
-      { source: "change-2", target: "thing-1" },
-      { source: "do-1", target: "change-1" },
-      { source: "do-2", target: "change-1" },
-      { source: "do-3", target: "change-2" },
+      { target: "change-1", source: "thing-1", size: 4 },
+      { target: "change-2", source: "thing-1" },
+      { target: "do-1", source: "change-1", size: 3 },
+      { target: "do-2", source: "change-1" },
+      { target: "do-3", source: "change-2" },
     ],
   };
 

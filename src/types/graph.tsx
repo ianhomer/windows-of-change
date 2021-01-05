@@ -20,6 +20,7 @@ export interface Node extends SimulationNodeDatum {
 
 export interface Link extends SimulationLinkDatum<Node> {
   type?: LinkType;
+  size?: number;
 }
 
 export interface Graph {

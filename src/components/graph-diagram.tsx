@@ -26,7 +26,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .selectAll(".link")
       .data(props.graph.links)
       .join("line")
-      .classed("link", true);
+      .classed("link", true)
+      .attr("stroke-width", (d: Link) => d.size ?? 1);
 
     const node = svg
       .selectAll<SVGCircleElement, Node>(".node")
