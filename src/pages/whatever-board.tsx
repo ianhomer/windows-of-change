@@ -16,6 +16,7 @@ const windowTitles = [
   "+1",
   "+2",
   "Fire alarm in 5 minutes!! commit code now!",
+  "Fire alarm in 2 minutes!!!",
 ];
 
 export default function Page() {
