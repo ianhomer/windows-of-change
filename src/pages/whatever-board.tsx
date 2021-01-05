@@ -15,7 +15,7 @@ const windowTitles = [
   "Something Else",
   "+1",
   "+2",
-  "Fire alarm in 5 minutes",
+  "Fire alarm in 5 minutes!! commit code now!",
 ];
 
 export default function Page() {
@@ -39,6 +39,9 @@ export default function Page() {
           <Window left={100} top={300}>
             <InstantMessager />
           </Window>
+          <Window left={400} top={350}>
+            What I want
+          </Window>
           <Window left={200} top={400}>
             Assigned Tasks
           </Window>
@@ -47,7 +50,7 @@ export default function Page() {
           </Window>
           {titles.map((title) => (
             <Window
-              left={600 + Math.random() * 400}
+              left={200 + Math.random() * 400}
               top={200 + Math.random() * 400}
             >
               {title}
