@@ -54,6 +54,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       simulation.alpha(1).restart();
     }
 
+    const forceLink = d3.forceLink<Node, Link>(props.graph.links);
+
     const simulation = d3
       .forceSimulation()
       .nodes(props.graph.nodes)
@@ -61,7 +63,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force(
         "link",
-        d3.forceLink<Node, Link>(props.graph.links).id((d: Node) => d.id)
+        forceLink.id((d: Node) => d.id)
       )
       .on("tick", tick);
 
