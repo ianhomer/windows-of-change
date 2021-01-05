@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { Node, Graph } from "../types/graph";
+import { Node, Link, Graph } from "../types/graph";
 
 interface GraphDiagramProps {
   graph: Graph;
@@ -58,7 +58,10 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody().strength(-800))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("link", d3.forceLink(props.graph.links))
+      .force(
+        "link",
+        d3.forceLink<Node, Link>(props.graph.links).id((d: Node) => d.id)
+      )
       .on("tick", tick);
 
     function dragstart(this: SVGCircleElement) {

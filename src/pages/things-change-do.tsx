@@ -6,9 +6,9 @@ import lesson from "../lessons/things-change-do";
 export default function Page() {
   const graph: Graph = {
     nodes: [
-      { index: 0, fx: 100, fy: 100, type: NodeType.Thing, size: 20 },
-      { index: 1, fx: 100, fy: 200, type: NodeType.Change, size: 20 },
-      { index: 2, fx: 100, fy: 300, type: NodeType.Do, size: 20 },
+      { id: "thing", fx: 100, fy: 100, type: NodeType.Thing, size: 20 },
+      { id: "change", fx: 100, fy: 200, type: NodeType.Change, size: 20 },
+      { id: "do", fx: 100, fy: 300, type: NodeType.Do, size: 20 },
     ],
     links: [],
   };

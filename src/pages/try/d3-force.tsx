@@ -5,13 +5,13 @@ import { Graph } from "../../types/graph";
 export default function Page() {
   const graph: Graph = {
     nodes: [
-      { index: 0, fx: 100, fy: 200, size: 20 },
-      { index: 1, fx: 200, fy: 200 },
-      { index: 2, fx: 300, fy: 200 },
+      { id: "0", fx: 100, fy: 200, size: 20 },
+      { id: "1", fx: 200, fy: 200 },
+      { id: "2", fx: 300, fy: 200 },
     ],
     links: [
-      { source: 0, target: 1 },
-      { source: 1, target: 2 },
+      { source: "0", target: 1 },
+      { source: "1", target: 2 },
     ],
   };
 
