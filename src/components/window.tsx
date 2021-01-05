@@ -2,7 +2,7 @@ import styles from "../styles/Window.module.scss";
 import { useDrag, DragSourceMonitor } from "react-dnd";
 import { Delta, Draggable } from "../types/draggable";
 import Slider from "@material-ui/core/Slider";
-import { ChangeEvent, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 interface WindowProps {
   left?: number;
