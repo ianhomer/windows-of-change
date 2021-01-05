@@ -14,16 +14,19 @@ const positions = [
 const createGraph = (position = { dos: false, goals: false }): Graph => {
   return {
     nodes: [
-      { id: "thing-1", fx: 500, fy: 200, type: NodeType.Thing, size: 40 },
-      { id: "change-1", fx: 400, fy: 200, type: NodeType.Change, size: 20 },
+      { id: "thing-1", fx: 700, fy: 200, type: NodeType.Thing, size: 40 },
+      { id: "change-1", x: 500, y: 200, type: NodeType.Change, size: 20 },
       { id: "change-2", fx: 300, fy: 200, type: NodeType.Change, size: 20 },
       { id: "change-3", fx: 200, fy: 200, type: NodeType.Change, size: 20 },
       ...(position.dos
         ? [
-            { id: "do-1", type: NodeType.Do, size: 10 },
-            { id: "do-2", type: NodeType.Do, size: 10 },
-            { id: "do-3", type: NodeType.Do, size: 10 },
+            { id: "do-1", x: 600, y: 200, type: NodeType.Do, size: 10 },
+            { id: "do-2", x: 600, y: 100, type: NodeType.Do, size: 10 },
+            { id: "do-3", x: 300, y: 200, type: NodeType.Do, size: 10 },
           ]
+        : []),
+      ...(position.goals
+        ? [{ id: "goal-1", fx: 600, fy: 100, type: NodeType.Change, size: 40 }]
         : []),
     ],
     links: [
@@ -35,6 +38,12 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
             { target: "do-1", source: "change-1" },
             { target: "do-2", source: "change-1" },
             { target: "do-3", source: "change-2" },
+          ]
+        : []),
+      ...(position.goals
+        ? [
+            { target: "change-1", source: "goal-1" },
+            { target: "goal-1", source: "thing-1" },
           ]
         : []),
     ],

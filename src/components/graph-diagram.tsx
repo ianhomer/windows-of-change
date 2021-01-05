@@ -61,11 +61,16 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .forceSimulation()
       .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody().strength(-800))
-      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force(
+        "center",
+        d3.forceCenter(width / 2, height / 2).strength(0.00000001)
+      )
       .force(
         "link",
         forceLink.id((d: Node) => d.id)
       )
+      .alpha(0.1)
+      .alphaDecay(0)
       .on("tick", tick);
 
     function dragstart(this: SVGCircleElement) {
