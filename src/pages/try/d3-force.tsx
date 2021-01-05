@@ -5,7 +5,7 @@ import { Graph } from "../../types/graph";
 export default function Page() {
   const graph: Graph = {
     nodes: [
-      { index: 0, fx: 100, fy: 200 },
+      { index: 0, fx: 100, fy: 200, type: "change", size: 20 },
       { index: 1, fx: 200, fy: 200 },
       { index: 2, fx: 300, fy: 200 },
     ],
