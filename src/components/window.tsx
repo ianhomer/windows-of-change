@@ -2,7 +2,7 @@ import styles from "../styles/Window.module.scss";
 import { useDrag, DragSourceMonitor } from "react-dnd";
 import { Delta, Draggable } from "../types/draggable";
 import Slider from "@material-ui/core/Slider";
-import { useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 
 interface WindowProps {
   left?: number;
@@ -38,8 +38,8 @@ export default function Window(props: WindowProps): JSX.Element {
   const [top, setTop] = useState(props.top ?? 0);
   const [opacity, setOpacity] = useState(1);
 
-  const handleOpacityChange = (event: any, newValue: number) => {
-    setOpacity(newValue);
+  const handleOpacityChange = (event: any, newValue: number | number[]) => {
+    setOpacity(Array.isArray(newValue) ? newValue[0] : newValue);
   };
 
   const move = (delta: Delta) => {
