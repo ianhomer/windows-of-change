@@ -11,7 +11,8 @@ const positions = [
   { properties: ["name", "what"] },
   { properties: ["name", "aka"] },
   { properties: ["name", "scale"] },
-  { properties: ["name", "what", "aka", "scale"] },
+  { properties: ["name", "who"] },
+  { properties: ["name", "what", "who", "scale"] },
 ];
 
 export default function Page() {
@@ -38,7 +39,13 @@ export default function Page() {
             scale: "months",
           },
           { name: "Quest", what: "focus", aka: "Feature", scale: "weeks" },
-          { name: "Goal", what: "outcome", aka: "Epic", scale: "days" },
+          {
+            name: "Goal",
+            what: "outcome",
+            aka: "Epic",
+            scale: "days",
+            who: "owner",
+          },
           {
             name: "Change",
             what1: "value",
@@ -46,6 +53,7 @@ export default function Page() {
             what: "output",
             aka: "Story ; Bug ; Task",
             scale: "hours",
+            who: "doer",
           },
           {
             name: "Task",
@@ -54,6 +62,7 @@ export default function Page() {
             what: "do",
             aka: "Sub-task",
             scale: "minutes",
+            who: "doer",
           },
         ]}
       />
