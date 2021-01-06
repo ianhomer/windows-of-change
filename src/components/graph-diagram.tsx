@@ -4,17 +4,27 @@ import { Node, Link, Graph } from "../types/graph";
 
 interface GraphDiagramProps {
   graph: Graph;
+  className?: string;
+  width?: number;
+  height?: number;
 }
+
+GraphDiagram.defaultProps = {
+  className: "fullscreen",
+  width: 600,
+  height: 400,
+};
 
 export default function GraphDiagram(props: GraphDiagramProps) {
   const ref = useRef(null);
-  const width = 800;
-  const height = 400;
 
   // Initial Load
   useEffect(() => {
     console.log("useEffect 1");
-    d3.select(ref.current).attr("width", width).attr("height", height);
+    const svg = d3.select(ref.current);
+
+    props.width && svg.attr("width", props.width);
+    props.height & svg.attr("height", props.height);
   }, []);
 
   // props update
@@ -63,7 +73,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .force("charge", d3.forceManyBody().strength(-800))
       .force(
         "center",
-        d3.forceCenter(width / 2, height / 2).strength(0.00000001)
+        d3.forceCenter(props.width / 2, props.height / 2).strength(0.00000001)
       )
       .force(
         "link",
@@ -82,8 +92,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     }
 
     function dragged(this: SVGCircleElement, event: any) {
-      event.subject.fx = clamp(event.x, 0, width);
-      event.subject.fy = clamp(event.y, 0, height);
+      event.subject.fx = clamp(event.x, 0, props.width);
+      event.subject.fy = clamp(event.y, 0, props.height);
       simulation.alpha(1).restart();
     }
 
@@ -97,7 +107,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
 
   return (
     <>
-      <svg ref={ref} />
+      <svg ref={ref} className={props.className ?? "fullscreen"} />
     </>
   );
 }
