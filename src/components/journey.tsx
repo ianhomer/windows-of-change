@@ -40,8 +40,8 @@ export default function Journey(props: JourneyProps): JSX.Element {
   return (
     <>
       <Nexter>
-        <StyledLink>p</StyledLink>
-        <StyledLink>n</StyledLink>
+        <StyledLink onClick={() => props.transition(-1)}>p</StyledLink>
+        <StyledLink onClick={() => props.transition(1)}>n</StyledLink>
       </Nexter>
       <Index>
         {windowsOfChange.map((name, i) => (
