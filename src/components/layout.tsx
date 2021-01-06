@@ -34,13 +34,13 @@ export default function Layout(props: LayoutProps): JSX.Element {
   const notes = props.notes ?? props.lesson?.notes;
   const assets = props.assets ?? props.lesson?.assets;
 
-  function transition(direction: number) {
+  const transition = (direction: number) => {
     const handled = props.transition && props.transition(direction);
     if (!handled) {
       const nextStep = travel(journey, router.pathname.substring(1), direction);
       router.push("/" + nextStep);
     }
-  }
+  };
 
   useEffect(() => {
     const onKeyUp = (e: any) => {
@@ -68,7 +68,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <title>{title}</title>
       </Head>
       <main className={styles.main}>
-        <Journey />
+        <Journey transition={transition} />
         <h1>{title}</h1>
         <div className={styles.container}>
           {assets &&
