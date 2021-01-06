@@ -34,6 +34,14 @@ export default function Layout(props: LayoutProps): JSX.Element {
   const notes = props.notes ?? props.lesson?.notes;
   const assets = props.assets ?? props.lesson?.assets;
 
+  function transition(direction: number) {
+    const handled = props.transition && props.transition(direction);
+    if (!handled) {
+      const nextStep = travel(journey, router.pathname.substring(1), direction);
+      router.push("/" + nextStep);
+    }
+  }
+
   useEffect(() => {
     const onKeyUp = (e: any) => {
       if (e.key == "n") {
@@ -41,15 +49,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
       } else {
         const direction =
           e.key == "ArrowLeft" ? -1 : e.key == "ArrowRight" ? 1 : 0;
-        const handled = props.transition && props.transition(direction);
-        if (!handled) {
-          const nextStep = travel(
-            journey,
-            router.pathname.substring(1),
-            direction
-          );
-          router.push("/" + nextStep);
-        }
+        transition(direction);
       }
     };
     window.addEventListener("keyup", onKeyUp);
