@@ -9,7 +9,7 @@ const Image = styled.img`
 export default function Page() {
   return (
     <Layout notes={lesson.notes}>
-      <Image width={800} src={lesson.assets[0]} />
+      <Image width={800} src="https://bit.ly/3n6WbHX" />
     </Layout>
   );
 }

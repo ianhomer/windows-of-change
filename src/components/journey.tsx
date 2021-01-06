@@ -3,7 +3,7 @@ import styled from "styled-components";
 import windowsOfChange from "../journeys/windows-of-change";
 
 interface JourneyProps {
-  transition?: (direction: number) => boolean;
+  transition: (direction: number) => boolean;
 }
 
 const Nexter = styled.div`
@@ -16,7 +16,7 @@ const Nexter = styled.div`
   }
 `;
 
-const StyledLink = styled.a<{ active: boolean }>`
+const StyledLink = styled.a`
   display: block;
   float: left;
   text-align: center;

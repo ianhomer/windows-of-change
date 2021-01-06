@@ -40,6 +40,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
       const nextStep = travel(journey, router.pathname.substring(1), direction);
       router.push("/" + nextStep);
     }
+    return true;
   };
 
   useEffect(() => {
