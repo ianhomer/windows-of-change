@@ -17,6 +17,8 @@ GraphDiagram.defaultProps = {
 
 export default function GraphDiagram(props: GraphDiagramProps) {
   const ref = useRef(null);
+  const width = props.width ?? 600;
+  const height = props.height ?? 400;
 
   // Initial Load
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     const svg = d3.select(ref.current);
 
     props.width && svg.attr("width", props.width);
-    props.height & svg.attr("height", props.height);
+    props.height && svg.attr("height", props.height);
   }, []);
 
   // props update
@@ -73,7 +75,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .force("charge", d3.forceManyBody().strength(-800))
       .force(
         "center",
-        d3.forceCenter(props.width / 2, props.height / 2).strength(0.00000001)
+        d3.forceCenter(width / 2, height / 2).strength(0.00000001)
       )
       .force(
         "link",
@@ -92,8 +94,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     }
 
     function dragged(this: SVGCircleElement, event: any) {
-      event.subject.fx = clamp(event.x, 0, props.width);
-      event.subject.fy = clamp(event.y, 0, props.height);
+      event.subject.fx = clamp(event.x, 0, width);
+      event.subject.fy = clamp(event.y, 0, height);
       simulation.alpha(1).restart();
     }
 
