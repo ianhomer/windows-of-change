@@ -14,7 +14,12 @@ const StackDiv = styled.div`
 const Layer = styled.div`
   display: flex;
   align-items: stretch;
-  width: 60em;
+  @media (min-width: 800px) {
+    width: 60em;
+  }
+  @media (max-width: 800px) {
+    width: 80%;
+  }
   padding: 0em;
   margin: 0em;
 `;

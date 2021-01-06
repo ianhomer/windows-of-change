@@ -8,15 +8,22 @@ interface QuoteProps {
 }
 
 const QuoteContainer = styled.div`
-  padding: 4em;
-  margin: 4em;
+  @media (min-width: 800px) {
+    padding: 4em;
+    margin: 4em;
+  }
 `;
 
 const Words = styled.div`
-  font-size: 2rem;
   padding: 1em;
-  width: 30em;
-  min-height: 7em;
+  @media (min-width: 800px) {
+    font-size: 2rem;
+    max-width: 30em;
+    min-height: 7em;
+  }
+  @media (max-width: 800px) {
+    width: 90%;
+  }
   border: 2px solid #fff;
   border-radius: 20px;
 `;
@@ -29,9 +36,11 @@ const Who = styled.div`
   margin: 0;
   padding-top: 1em;
   z-index: 1;
-  margin-left: 8em;
-  padding-left: 6em;
-  width: 40em;
+  @media (min-width: 800px) {
+    margin-left: 8em;
+    padding-left: 6em;
+    width: 40em;
+  }
 `;
 
 export default function Quote(props: QuoteProps): JSX.Element {

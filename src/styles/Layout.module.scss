@@ -8,8 +8,10 @@ $background: #0e253a;
   align-items: center;
 }
 
-.content {
-  font-size: 2em;
+@media (min-width: 800px) {
+  .content {
+      font-size: 2em;
+  }
 }
 
 .container li {
