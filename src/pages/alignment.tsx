@@ -8,9 +8,9 @@ export default function Page() {
       <Stack
         layers={[
           { name: "North Star" },
-          { name: "..." },
-          { name: "..." },
-          { name: "..." },
+          {},
+          {},
+          {},
           { name: "change" },
           { name: "do" },
         ]}

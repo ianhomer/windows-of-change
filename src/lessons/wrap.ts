@@ -2,14 +2,15 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-- Mob
-- Low wip
-- Align goals
+- Pair+
+- WIP limits
+- Aligned on goals
 - Guided by maps
-- Do small things
+- Frequent small changes
 `,
   notes: `
 - Being able to make change rapidly - no matter how small
+- We don't build complex things
 `,
 };
 

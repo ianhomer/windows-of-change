@@ -62,7 +62,6 @@ export default function Page() {
             what: "do",
             aka: "Sub-task",
             scale: "minutes",
-            who: "doer",
           },
         ]}
       />
