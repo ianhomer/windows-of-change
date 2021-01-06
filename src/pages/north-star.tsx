@@ -1,20 +1,15 @@
 import Layout from "../components/layout";
-import Stack from "../components/stack";
 import lesson from "../lessons/north-star";
+import styled from "styled-components";
+
+const Image = styled.img`
+  border: 1px solid #999;
+`;
 
 export default function Page() {
   return (
-    <Layout assets={lesson.assets} notes={lesson.notes}>
-      <Stack
-        layers={[
-          { name: "North Star" },
-          { name: "..." },
-          { name: "..." },
-          { name: "..." },
-          { name: "change" },
-          { name: "do" },
-        ]}
-      />
+    <Layout notes={lesson.notes}>
+      <Image width={800} src={lesson.assets[0]} />
     </Layout>
   );
 }

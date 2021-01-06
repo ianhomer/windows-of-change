@@ -3,6 +3,7 @@ const journey: string[] = [
   "do",
   "happiness",
   "north-star",
+  "alignment",
   "goals",
   "cloudy-future",
   "chess",
