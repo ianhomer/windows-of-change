@@ -33,7 +33,16 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
           ]
         : []),
       ...(position.goals
-        ? [{ id: "goal-1", fx: 200, fy: 0, type: NodeType.Change, size: 40 }]
+        ? [
+            {
+              id: "goal-1",
+              fx: 200,
+              fy: 0,
+              type: NodeType.Change,
+              size: 40,
+              label: "goal",
+            },
+          ]
         : []),
     ],
     links: [

@@ -24,13 +24,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
 
   // Initial Load
   useEffect(() => {
-    console.log("useEffect 1");
     const svg = d3.select(ref.current);
-
-    //svg.attr("width", width);
-    //svg.attr("x", -width / 2);
-    //svg.attr("height", height);
-    //svg.attr("y", -height / 2);
     svg.attr("viewBox", `0 0 ${width} ${height}`);
   }, []);
 
@@ -53,7 +47,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .classed("group", true)
       .raise();
 
-    const node = group
+    group
       .append("circle")
       .attr("r", (d: Node) => d?.size ?? 10)
       .attr("data-type", (d: Node) => d?.type ?? "unknown")
@@ -96,8 +90,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     const simulation = d3
       .forceSimulation()
       .nodes(props.graph.nodes)
-      .force("charge", d3.forceManyBody().strength(-10))
-      .force("center", d3.forceCenter(0, 0).strength(0.1))
+      .force("charge", d3.forceManyBody().strength(-30))
+      .force("center", d3.forceCenter(0, 0).strength(0.001))
       .force(
         "link",
         forceLink.id((d: Node) => d.id)

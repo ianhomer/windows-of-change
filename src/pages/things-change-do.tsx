@@ -1,7 +1,6 @@
 import Layout from "../components/layout";
 import GraphDiagram from "../components/graph-diagram";
 import { Graph, NodeType } from "../types/graph";
-import lesson from "../lessons/things-change-do";
 
 export default function Page() {
   const graph: Graph = {
