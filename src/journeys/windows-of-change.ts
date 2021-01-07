@@ -30,6 +30,7 @@ const journey: string[] = [
   "engineering",
   "turn-up-the-good",
   "delete-something",
+  "things-make-prizes",
   "remoting",
   "delivery-lead",
   "product-lead",
