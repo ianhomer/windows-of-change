@@ -79,8 +79,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     const simulation = d3
       .forceSimulation()
       .nodes(props.graph.nodes)
-      .force("charge", d3.forceManyBody().strength(-800))
-      .force("center", d3.forceCenter(0, 0).strength(0.01))
+      .force("charge", d3.forceManyBody().strength(-10))
+      .force("center", d3.forceCenter(0, 0).strength(0.1))
       .force(
         "link",
         forceLink.id((d: Node) => d.id)
