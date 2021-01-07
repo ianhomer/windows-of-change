@@ -1,6 +1,7 @@
 import Layout from "../components/layout";
 import { useEffect, useState } from "react";
 import { transition } from "../utils/journeyish";
+import lesson from "../lessons/what-is-good";
 
 const positions = (() => {
   const messages = [
@@ -44,6 +45,7 @@ export default function Page() {
   return (
     <Layout
       content={content}
+      notes={lesson.notes}
       transition={transition(positions.length, setPosition)}
     />
   );

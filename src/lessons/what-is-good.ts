@@ -1,8 +1,8 @@
 import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
-  content: `
-Start
+  notes: `
+- One team - engineers ; designers ; leaders ; stakeholders
 `,
 };
 

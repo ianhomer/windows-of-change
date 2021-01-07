@@ -1,6 +1,6 @@
 import { travel } from "../../src/utils/journeyish";
 
-const journey = ["step1", "step2", "step3"];
+const journey = ["", "step1", "step2", "step3"];
 
 it("travels nowhere", () => {
   expect(travel(journey, "step1", 0)).toBe("step1");
@@ -8,6 +8,10 @@ it("travels nowhere", () => {
 
 it("travels forward", () => {
   expect(travel(journey, "step2", 1)).toBe("step3");
+});
+
+it("travels forward from start", () => {
+  expect(travel(journey, "", 1)).toBe("step1");
 });
 
 it("travels backward", () => {
@@ -19,18 +23,18 @@ it("travels forward to end", () => {
 });
 
 it("travels backward to beginning", () => {
-  expect(travel(journey, "step1", -1)).toBe("step1");
+  expect(travel(journey, "step1", -1)).toBe("");
 });
 
 it("travels forward from unrecognised step", () => {
   expect(travel(journey, "unrecognised-step", 1)).toBe("step3");
 });
 
-it("travels either direction from nowhere starts at beginning", () => {
+it("travels either direction from empty steps starts at beginning", () => {
   expect(travel(journey, "", 1)).toBe("step1");
-  expect(travel(journey, "", -1)).toBe("step1");
+  expect(travel(journey, "", -1)).toBe("");
 });
 
 it("travels backward from unrecognised step to beginning", () => {
-  expect(travel(journey, "unrecognised-step", -1)).toBe("step1");
+  expect(travel(journey, "unrecognised-step", -1)).toBe("");
 });

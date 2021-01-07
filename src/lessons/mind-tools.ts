@@ -7,7 +7,6 @@ const lesson: Lesson = {
 - Let's take the luxury to think about how we'd want to manage flow of work
 - How can we make it easier to understand what we should deliver & do?
 `,
-  assets: ["https://bit.ly/3n6WbHX"],
 };
 
 export default lesson;

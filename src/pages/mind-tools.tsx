@@ -1,27 +1,30 @@
 import Layout from "../components/layout";
-import lesson from "../lessons/tooling";
+import lesson from "../lessons/mind-tools";
 import { useEffect, useState } from "react";
 import { transition } from "../utils/journeyish";
 
 const positions = (() => {
   const messages = [
     `
-- how do we know what to do each day
-- how do we know good
+- Work flow & communication tools ... meh!
+- Each channel is clamouring for attention
+- Misalign on what is important
   `,
     `
-- work flow tools we use every day are far from optimal
+- Work flow & communication tools ... meh!
+- Each channel is clamouring for attention
+- Misalign on what is important
+- tool X is !!!
 `,
     `
-- sub-par work flow tools
-`,
+- ~Work flow & communication tools ... meh!~
+- ~Each channel is clamouring for attention~
+- ~Misalign on what is important~
+- ~tool X is !!!~
+- Let's free ourselves from tools
+- Let's dream a little 
+    `,
   ];
-  messages.push(
-    messages[1] +
-      `
-- let's dream a little of what would actual help
-`
-  );
   return messages;
 })();
 

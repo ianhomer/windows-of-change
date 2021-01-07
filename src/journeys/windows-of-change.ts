@@ -1,7 +1,7 @@
 const journey: string[] = [
-  "start",
+  "",
   "what-is-good",
-  "tooling",
+  "mind-tools",
   "do",
   "happiness",
   "north-star",

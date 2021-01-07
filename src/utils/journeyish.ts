@@ -5,8 +5,6 @@ export function travel(
 ): string {
   if (direction == 0) {
     return current;
-  } else if (!current) {
-    return steps[0];
   }
   const currentIndex = steps.findIndex((s) => s == current);
   let nextIndex;

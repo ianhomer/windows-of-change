@@ -4,5 +4,5 @@ import Index from "../../src/pages/index";
 
 it("renders OK", () => {
   const wrapper = shallow(<Index />);
-  expect(wrapper.find("p").text()).toBe("Getting started ...");
+  expect(wrapper.find("Layout").text()).toBe("<Layout />");
 });
