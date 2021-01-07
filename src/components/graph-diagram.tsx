@@ -46,15 +46,23 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .classed("link", true)
       .attr("stroke-width", (d: Link) => d.size ?? 2);
 
-    const node = svg
+    const group = svg
       .selectAll<SVGCircleElement, Node>(".node")
       .data(props.graph.nodes)
-      .join("circle")
-      .raise()
+      .join("g")
+      .raise();
+
+    const node = group
+      .append("circle")
       .attr("r", (d: Node) => d?.size ?? 10)
       .attr("data-type", (d: Node) => d?.type ?? "unknown")
       .classed("node", true)
       .classed("fixed", (d: Node) => d.fx !== undefined);
+
+    const text = group
+      .append("text")
+      .text((d: Node) => d?.label)
+      .classed("label", true);
 
     function tick() {
       link
@@ -62,9 +70,12 @@ export default function GraphDiagram(props: GraphDiagramProps) {
         .attr("y1", (d: any) => d.source.y + yOffset ?? 0)
         .attr("x2", (d: any) => d.target.x + xOffset ?? 0)
         .attr("y2", (d: any) => d.target.y + yOffset ?? 0);
+      text
+        .attr("x", (d: Node) => d.x + xOffset + 10 + (d?.size ?? 10))
+        .attr("y", (d: Node) => d.y + yOffset + 10);
       node
-        .attr("cx", (d: Node) => d.x + xOffset ?? 0)
-        .attr("cy", (d: Node) => d.y + yOffset ?? 0);
+        .attr("cx", (d: Node) => d.x + xOffset)
+        .attr("cy", (d: Node) => d.y + yOffset);
     }
 
     function click(this: SVGCircleElement, event: any, d: Node) {
