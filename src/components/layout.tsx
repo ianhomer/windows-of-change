@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { travel } from "../utils/journeyish";
 import journey from "../journeys/windows-of-change";
+import gfm from "remark-gfm";
 
 interface LayoutProps {
   assets?: (Asset | string)[];
@@ -80,12 +81,16 @@ export default function Layout(props: LayoutProps): JSX.Element {
               return <Image width={width} src={url} />;
             })}
           {content && (
-            <ReactMarkdown className={styles.content} children={content} />
+            <ReactMarkdown
+              plugins={[gfm]}
+              className={styles.content}
+              children={content}
+            />
           )}
           {props.children && <>{props.children}</>}
           {notesVisible && notes && (
             <div className={styles.notes}>
-              <ReactMarkdown children={notes} />
+              <ReactMarkdown plugins={[gfm]} children={notes} />
             </div>
           )}
         </div>
