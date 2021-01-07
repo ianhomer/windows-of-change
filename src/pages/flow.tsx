@@ -14,7 +14,14 @@ const positions = [
 const createGraph = (position = { dos: false, goals: false }): Graph => {
   return {
     nodes: [
-      { id: "thing-1", fx: 300, fy: 0, type: NodeType.Thing, size: 40 },
+      {
+        id: "thing-1",
+        fx: 300,
+        fy: 0,
+        type: NodeType.Thing,
+        size: 40,
+        label: "thing",
+      },
       { id: "change-1", x: 100, y: 0, type: NodeType.Change, size: 20 },
       { id: "change-2", fx: -100, fy: 0, type: NodeType.Change, size: 20 },
       { id: "change-3", fx: -200, fy: 0, type: NodeType.Change, size: 20 },
