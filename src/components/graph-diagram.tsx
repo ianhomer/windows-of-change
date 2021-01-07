@@ -11,25 +11,27 @@ interface GraphDiagramProps {
 
 GraphDiagram.defaultProps = {
   className: "fullscreen",
-  width: 600,
-  height: 400,
+  width: 1600,
+  height: 800,
 };
 
 export default function GraphDiagram(props: GraphDiagramProps) {
   const ref = useRef(null);
   const width = props.width ?? 600;
   const height = props.height ?? 400;
+  const xOffset = width / 2;
+  const yOffset = height / 2;
 
   // Initial Load
   useEffect(() => {
     console.log("useEffect 1");
     const svg = d3.select(ref.current);
 
-    svg.attr("width", width);
+    //svg.attr("width", width);
     //svg.attr("x", -width / 2);
-    svg.attr("height", height);
+    //svg.attr("height", height);
     //svg.attr("y", -height / 2);
-    //svg.attr("viewBox", `${-width/2} ${-height/2} ${width} ${height}`);
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
   }, []);
 
   // props update
@@ -56,11 +58,13 @@ export default function GraphDiagram(props: GraphDiagramProps) {
 
     function tick() {
       link
-        .attr("x1", (d: any) => d.source.x ?? 0)
-        .attr("y1", (d: any) => d.source.y ?? 0)
-        .attr("x2", (d: any) => d.target.x ?? 0)
-        .attr("y2", (d: any) => d.target.y ?? 0);
-      node.attr("cx", (d: Node) => d.x ?? 0).attr("cy", (d: Node) => d.y ?? 0);
+        .attr("x1", (d: any) => d.source.x + xOffset ?? 0)
+        .attr("y1", (d: any) => d.source.y + yOffset ?? 0)
+        .attr("x2", (d: any) => d.target.x + xOffset ?? 0)
+        .attr("y2", (d: any) => d.target.y + yOffset ?? 0);
+      node
+        .attr("cx", (d: Node) => d.x + xOffset ?? 0)
+        .attr("cy", (d: Node) => d.y + yOffset ?? 0);
     }
 
     function click(this: SVGCircleElement, event: any, d: Node) {
@@ -76,7 +80,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .forceSimulation()
       .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody().strength(-800))
-      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.01))
+      .force("center", d3.forceCenter(0, 0).strength(0.01))
       .force(
         "link",
         forceLink.id((d: Node) => d.id)
@@ -94,8 +98,8 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     }
 
     function dragged(this: SVGCircleElement, event: any) {
-      event.subject.fx = clamp(event.x, 0, width);
-      event.subject.fy = clamp(event.y, 0, height);
+      event.subject.fx = clamp(event.x, -xOffset, xOffset);
+      event.subject.fy = clamp(event.y, -yOffset, yOffset);
       simulation.alpha(1).restart();
     }
 
