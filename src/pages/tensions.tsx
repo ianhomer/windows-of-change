@@ -10,9 +10,9 @@ export default function Page() {
   const [checked, setChecked] = useState(false);
   const [graph, setGraph] = useState<Graph>({
     nodes: [
-      { id: "pl", index: 0, fx: 100, fy: 100, type: NodeType.Do, size: 20 },
-      { id: "dl", index: 1, type: NodeType.Do, size: 20 },
-      { id: "tl", index: 2, type: NodeType.Do, size: 20 },
+      { id: "pl", index: 0, x: 0, y: -100, type: NodeType.Do, size: 20 },
+      { id: "dl", index: 1, x: -100, y: 100, type: NodeType.Do, size: 20 },
+      { id: "tl", index: 2, x: 100, y: 100, type: NodeType.Do, size: 20 },
     ],
     links: [],
   });
