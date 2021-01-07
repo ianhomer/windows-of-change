@@ -14,14 +14,21 @@ export default function Page() {
         size: 20,
         label: "thing",
       },
-      { id: "change", fx: 0, fy: 0, type: NodeType.Change, size: 20 },
-      { id: "do", fx: 0, fy: 100, type: NodeType.Do, size: 20 },
+      {
+        id: "change",
+        fx: 0,
+        fy: 0,
+        type: NodeType.Change,
+        size: 20,
+        label: "change",
+      },
+      { id: "do", fx: 0, fy: 100, type: NodeType.Do, size: 20, label: "do" },
     ],
     links: [],
   };
 
   return (
-    <Layout lesson={lesson}>
+    <Layout>
       <GraphDiagram graph={graph} />
     </Layout>
   );

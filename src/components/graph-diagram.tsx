@@ -84,7 +84,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       );
     }
 
-    function click(this: SVGCircleElement, event: any, d: Node) {
+    function click(this: SVGElement, event: any, d: Node) {
       delete d.fx;
       delete d.fy;
       d3.select(event.currentTarget).classed("fixed", false);
@@ -106,7 +106,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .alphaDecay(0)
       .on("tick", tick);
 
-    function dragstart(this: SVGCircleElement) {
+    function dragstart(this: SVGElement) {
       d3.select(this).classed("fixed", true);
     }
 
@@ -114,18 +114,18 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       return x < low ? low : x > high ? high : x;
     }
 
-    function dragged(this: SVGCircleElement, event: any) {
+    function dragged(this: SVGElement, event: any) {
       event.subject.fx = clamp(event.x, -xOffset, xOffset);
       event.subject.fy = clamp(event.y, -yOffset, yOffset);
       simulation.alpha(1).restart();
     }
 
     const drag = d3
-      .drag<SVGCircleElement, Node, any>()
+      .drag<SVGElement, Node, any>()
       .on("start", dragstart)
       .on("drag", dragged);
 
-    node.call(drag).on("click", click);
+    group.call(drag).on("click", click);
   }, [props]);
 
   return (
