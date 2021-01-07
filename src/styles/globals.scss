@@ -31,6 +31,12 @@ h1 {
   padding-left: 1em;
 }
 
+@media (max-width: 800px) {
+  h1 {
+    padding-right: 4em;
+  }
+}
+
 .link {
   stroke: #fff;
 }

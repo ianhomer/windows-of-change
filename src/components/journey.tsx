@@ -13,6 +13,7 @@ const Nexter = styled.div`
   @media (max-width: 800px) {
     position: absolute;
     right: 0%;
+    z-index: 999;
   }
 `;
 
@@ -30,6 +31,7 @@ const Index = styled.div`
     display: block;
     position: absolute;
     bottom: 0%;
+    z-index: 999;
   }
   @media (max-width: 800px) {
     display: none;
