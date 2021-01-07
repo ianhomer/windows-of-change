@@ -25,8 +25,11 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     console.log("useEffect 1");
     const svg = d3.select(ref.current);
 
-    props.width && svg.attr("width", props.width);
-    props.height && svg.attr("height", props.height);
+    svg.attr("width", width);
+    //svg.attr("x", -width / 2);
+    svg.attr("height", height);
+    //svg.attr("y", -height / 2);
+    //svg.attr("viewBox", `${-width/2} ${-height/2} ${width} ${height}`);
   }, []);
 
   // props update
@@ -73,10 +76,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .forceSimulation()
       .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody().strength(-800))
-      .force(
-        "center",
-        d3.forceCenter(width / 2, height / 2).strength(0.00000001)
-      )
+      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.01))
       .force(
         "link",
         forceLink.id((d: Node) => d.id)
