@@ -5,7 +5,7 @@ interface ToggleProps {
 
 export default function Toggle(props: ToggleProps): JSX.Element {
   return (
-    <div>
+    <div style={{ zIndex: 9 }}>
       <input
         type="checkbox"
         className="toggle-switch-checkbox"
