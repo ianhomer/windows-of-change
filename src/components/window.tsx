@@ -8,6 +8,7 @@ interface WindowProps {
   left?: number;
   top?: number;
   children: any;
+  opacity?: number;
 }
 
 function getStyles(
@@ -36,7 +37,7 @@ function getStyles(
 export default function Window(props: WindowProps): JSX.Element {
   const [left, setLeft] = useState(props.left ?? 0);
   const [top, setTop] = useState(props.top ?? 0);
-  const [opacity, setOpacity] = useState(1);
+  const [opacity, setOpacity] = useState(props?.opacitity ?? 0.5);
 
   const handleOpacityChange = (event: any, newValue: number | number[]) => {
     setOpacity(Array.isArray(newValue) ? newValue[0] : newValue);
@@ -45,6 +46,18 @@ export default function Window(props: WindowProps): JSX.Element {
   const move = (delta: Delta) => {
     setLeft(Math.round(left + delta.x));
     setTop(Math.round(top + delta.y));
+  };
+
+  // opacity with state bias
+  const calculateOpacity = (state, prop) => {
+    if (state > 0.95) {
+      return state;
+    }
+    const opacity = 2 * state * prop;
+    if (opacity > 1) {
+      return 1;
+    }
+    return opacity < 0 ? 0 : opacity;
   };
 
   const [{ isDragging }, drag] = useDrag({
@@ -58,13 +71,18 @@ export default function Window(props: WindowProps): JSX.Element {
     <div
       ref={drag}
       className={styles.window}
-      style={getStyles(left, top, opacity, isDragging)}
+      style={getStyles(
+        left,
+        top,
+        calculateOpacity(opacity, props.opacity),
+        isDragging
+      )}
     >
       <Slider
         value={opacity}
         onChange={handleOpacityChange}
         aria-labelledby="continuous-slider"
-        min={0.2}
+        min={0.4}
         max={1}
         step={0.01}
       />
