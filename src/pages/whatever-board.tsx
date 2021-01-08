@@ -1,6 +1,5 @@
 import Layout from "../components/layout";
 import lesson from "../lessons/whatever-board";
-import Window from "../components/window";
 import Board from "../components/board";
 import Mailbox from "../components/mailbox";
 import InstantMessager from "../components/instant-messager";
