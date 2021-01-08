@@ -23,8 +23,8 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
         label: "thing",
       },
       { id: "change-1", x: 100, y: 0, type: NodeType.Change, size: 20 },
-      { id: "change-2", fx: -100, fy: 0, type: NodeType.Change, size: 20 },
-      { id: "change-3", fx: -200, fy: 0, type: NodeType.Change, size: 20 },
+      { id: "change-2", x: -100, y: 0, type: NodeType.Change, size: 20 },
+      { id: "change-3", x: -200, y: 0, type: NodeType.Change, size: 20 },
       ...(position.dos
         ? [
             { id: "do-1", x: 200, y: 0, type: NodeType.Do, size: 10 },
