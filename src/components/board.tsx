@@ -15,7 +15,7 @@ interface BoardProps {
 }
 
 export default function Board(props: BoardProps): JSX.Element {
-  const [opacity, setOpacity] = useState(1);
+  const [opacity, setOpacity] = useState(0.9);
 
   const [, drop] = useDrop({
     accept: "window",

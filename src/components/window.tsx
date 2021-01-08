@@ -8,7 +8,7 @@ interface WindowProps {
   left?: number;
   top?: number;
   children: any;
-  opacity?: number;
+  opacity: number;
 }
 
 function getStyles(
@@ -37,7 +37,7 @@ function getStyles(
 export default function Window(props: WindowProps): JSX.Element {
   const [left, setLeft] = useState(props.left ?? 0);
   const [top, setTop] = useState(props.top ?? 0);
-  const [opacity, setOpacity] = useState(props?.opacitity ?? 0.5);
+  const [opacity, setOpacity] = useState(props?.opacity ?? 0.5);
 
   const handleOpacityChange = (event: any, newValue: number | number[]) => {
     setOpacity(Array.isArray(newValue) ? newValue[0] : newValue);
@@ -49,7 +49,7 @@ export default function Window(props: WindowProps): JSX.Element {
   };
 
   // opacity with state bias
-  const calculateOpacity = (state, prop) => {
+  const calculateOpacity = (state: number, prop: number) => {
     if (state > 0.95) {
       return state;
     }
@@ -82,7 +82,7 @@ export default function Window(props: WindowProps): JSX.Element {
         value={opacity}
         onChange={handleOpacityChange}
         aria-labelledby="continuous-slider"
-        min={0.4}
+        min={0.2}
         max={1}
         step={0.01}
       />
