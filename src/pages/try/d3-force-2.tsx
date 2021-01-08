@@ -4,8 +4,15 @@ import { Graph } from "../../types/graph";
 
 export default function Page() {
   const graph: Graph = {
-    nodes: [{ id: "0", x: 0, y: 0, size: 20 }],
-    links: [],
+    nodes: [
+      { id: "0", x: 0, y: 0, size: 20 },
+      { id: "1", x: -100, y: -100 },
+      { id: "2", x: 100, y: 100 },
+    ],
+    links: [
+      { source: "0", target: "1" },
+      { source: "0", target: "2" },
+    ],
   };
 
   return (

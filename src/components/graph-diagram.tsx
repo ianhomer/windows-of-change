@@ -91,7 +91,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
       .forceSimulation()
       .nodes(props.graph.nodes)
       .force("charge", d3.forceManyBody().strength(-300))
-      .force("center", d3.forceCenter(0, 0).strength(0.001))
+      .force("center", d3.forceCenter(0, 0).strength(0.01))
       .force("link", forceLink.id((d: Node) => d.id).strength(0.1))
       .alpha(0.1)
       .alphaDecay(0)
