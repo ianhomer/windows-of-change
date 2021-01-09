@@ -1,6 +1,7 @@
 import Layout from "../components/layout";
 import lesson from "../lessons/whatever-board";
 import Board from "../components/board";
+import Editable from "../components/editable";
 import Mailbox from "../components/mailbox";
 import InstantMessager from "../components/instant-messager";
 import { DndProvider } from "react-dnd";
@@ -29,13 +30,17 @@ export default function Page() {
   const contents = [
     { left: 100, top: 100, children: <Mailbox /> },
     { left: 100, top: 300, children: <InstantMessager /> },
-    { left: 400, top: 350, children: <>What I want</> },
-    { left: 200, top: 400, children: <>Assigned Tasks</> },
-    { left: 500, top: 300, children: <>Reminders : Timesheets!</> },
+    { left: 400, top: 350, children: <Editable>What I want</Editable> },
+    { left: 200, top: 400, children: <Editable>Assigned Tasks</Editable> },
+    {
+      left: 500,
+      top: 300,
+      children: <Editable>Reminders : Timesheets!</Editable>,
+    },
     ...titles.map((title) => ({
       left: 200 + Math.random() * 400,
       top: 200 + Math.random() * 400,
-      children: <>{title}</>,
+      children: <Editable>{title}</Editable>,
     })),
   ];
 
