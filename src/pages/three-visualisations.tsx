@@ -6,28 +6,29 @@ import lesson from "../lessons/what-is-good";
 const positions = (() => {
   const messages = [
     `
-- how do we know what we can do each day?
+Today we'll play with 3 visualisations to:
+
+1. help with alignment
   `,
     `
-- ~how do we know~ what we can do ~each day~
-- how do we know what is good?
+Today we'll play with 3 visualisations to:
+
+1. ~help with~ alignment
+2. help with priorisation
   `,
     `
-- ~how do we know~ what we can do ~each day~
-- ~how do we know~ what is good
-- how do align and create the right thing?
+Today we'll play with 3 visualisations to:
+
+1. ~help with~ alignment
+2. ~help with~ priorisation
+3. help with doing the right thing
   `,
     `
-- ~how do we know~ what we can do ~each day~
-- ~how do we know~ what is good
-- ~how do align and~ create the right thing
-- how do we does this together?
-  `,
-    `
-- ~how do we know~ what we can do ~each day~
-- ~how do we know~ what is good
-- ~how do align and~ create the right thing
-- ~how do we does this~ together
+Today we'll play with 3 visualisations to:
+
+1. ~help with~ alignment
+2. ~help with~ priorisation
+3. ~help with~ doing ~the right thing~
   `,
   ];
   return messages;

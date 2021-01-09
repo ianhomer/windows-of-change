@@ -33,12 +33,18 @@ const createGraph = (position = { dos: false, goals: false }): Graph => {
               y: 0,
               type: NodeType.Do,
               size: 10,
-              label: "do",
             },
             { id: "do-2", x: 200, y: 0, type: NodeType.Do, size: 20 },
             { id: "do-3", x: -100, y: 0, type: NodeType.Do, size: 10 },
-            { id: "do-5", x: -100, y: 0, type: NodeType.Do, size: 5 },
             { id: "do-4", x: -100, y: 0, type: NodeType.Do, size: 5 },
+            {
+              id: "do-5",
+              x: -100,
+              y: 0,
+              type: NodeType.Do,
+              size: 5,
+              label: "do",
+            },
           ]
         : []),
       ...(position.goals
@@ -87,7 +93,8 @@ export default function Page() {
 
   return (
     <Layout
-      lesson={lesson}
+      notes={lesson.notes}
+      content={lesson.content}
       transition={transition(positions.length, setPosition)}
     >
       <GraphDiagram graph={graph} />

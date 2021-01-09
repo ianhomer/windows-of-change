@@ -5,6 +5,8 @@ const lesson: Lesson = {
 - danger
 - empowered
 - guardrails
+- safety
+- no fear
 `,
   notes: `
 - **diagram** of guardrails - work taking place within guardrails

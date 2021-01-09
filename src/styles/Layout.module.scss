@@ -25,6 +25,13 @@ $background: #0e253a;
   margin-top: 1em;
 }
 
+.container a {
+  text-underline-offset: 0.2em;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #888;
+}
+
 .notes {
   position: absolute;
   top: 0;

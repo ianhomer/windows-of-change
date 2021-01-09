@@ -48,6 +48,12 @@ EmptyProperty.defaultProps = { count: 1 };
 
 const Bound = styled.div`
   text-align: center;
+  @media (min-width: 800px) {
+    width: 60em;
+  }
+  @media (max-width: 800px) {
+    width: 80%;
+  }
 `;
 
 export default function Stack(props: StackProps): JSX.Element {

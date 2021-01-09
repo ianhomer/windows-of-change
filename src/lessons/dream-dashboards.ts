@@ -5,7 +5,8 @@ const lesson: Lesson = {
 - focus
 - just enough
 - context aware
-- mindset, mental tool (not a phyiscal / digital one)
+- mindset & prototype tool 
+- ~exercise to help you know what you want~
 `,
   notes: `
 - help adjust what tooling you have in place and help evolve that to a better
