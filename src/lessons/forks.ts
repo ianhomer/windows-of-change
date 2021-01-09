@@ -2,6 +2,12 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
+- micro-fractures 
+- explore within common mission
+- separate delivery units
+- different missions
+`,
+  notes: `
 - a good thing
 - fracture / fork
 - mindful mis-alignment
