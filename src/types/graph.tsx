@@ -1,6 +1,7 @@
 import { SimulationNodeDatum, SimulationLinkDatum } from "d3-force";
 
 export enum NodeType {
+  Generic = "generic",
   Thing = "thing",
   Change = "change",
   Do = "do",
@@ -19,6 +20,7 @@ export interface Node extends SimulationNodeDatum {
 }
 
 export interface Link extends SimulationLinkDatum<Node> {
+  id: string | number;
   type?: LinkType;
   size?: number;
 }

@@ -50,7 +50,7 @@ export default function GraphDiagram(props: GraphDiagramProps) {
     group
       .append("circle")
       .attr("r", (d: Node) => d?.size ?? 10)
-      .attr("data-type", (d: Node) => d?.type ?? "unknown")
+      .attr("data-type", (d: Node) => d?.type ?? "change")
       .classed("node", true)
       .classed("fixed", (d: Node) => d.fx !== undefined);
 

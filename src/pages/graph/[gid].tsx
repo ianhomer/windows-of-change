@@ -16,7 +16,7 @@ export default function Page() {
   const gid: string = stringy(router.query["gid"] ?? "index");
 
   return (
-    <Layout>
+    <Layout title={gid}>
       {gid in graphs && <GraphDiagram graph={graphs[gid] as Graph} />}
       <LinksDiv>
         {Object.keys(graphs).map((key) => (

@@ -2,7 +2,12 @@ import Layout from "../components/layout";
 import GraphDiagram from "../components/graph-diagram";
 import Toggle from "../components/toggle";
 import { Graph, NodeType } from "../types/graph";
-import { addNodes, removeNodes } from "../utils/graphish";
+import {
+  addLinks,
+  addNodes,
+  removeLinks,
+  removeNodes,
+} from "../utils/graphish";
 import { useState } from "react";
 import lesson from "../lessons/tensions";
 
@@ -44,22 +49,58 @@ export default function Page() {
   const onChange = (checked: boolean) => {
     const newNodes = [
       {
+        id: "thing",
+        index: 4,
+        type: NodeType.Thing,
+        size: 30,
+        fx: 300,
+        label: "thing",
+      },
+
+      {
         id: "change1",
         index: 3,
         type: NodeType.Change,
         size: 10,
-        label: "change",
       },
       {
         id: "change2",
         index: 4,
         type: NodeType.Change,
         size: 10,
-        label: "change",
+      },
+    ];
+    const newLinks = [
+      {
+        id: 1,
+        source: "change1",
+        target: "thing",
+      },
+      {
+        id: 2,
+        source: "change2",
+        target: "change1",
+      },
+      {
+        id: "pl-change1",
+        source: "pl",
+        target: "change1",
+      },
+      {
+        id: "tl-change1",
+        source: "tl",
+        target: "change1",
+      },
+      {
+        id: "dl-change2",
+        source: "dl",
+        target: "change2",
       },
     ];
     setGraph(
-      checked ? addNodes(graph, newNodes) : removeNodes(graph, newNodes)
+      checked
+        ? addLinks(addNodes(graph, newNodes), newLinks)
+        : removeLinks(removeNodes(graph, newNodes), newLinks)
     );
 
     setChecked(checked);
