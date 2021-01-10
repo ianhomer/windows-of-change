@@ -13,14 +13,6 @@ const positions = [
       </Quote>
     ),
   },
-  {
-    quote: (
-      <Quote who="Joe Wicks">
-        Don't look too far into the future, just look at tomorrow. One day at a
-        time.
-      </Quote>
-    ),
-  },
 ];
 
 export default function Page() {
@@ -35,6 +27,7 @@ export default function Page() {
     <Layout
       notes={lesson.notes}
       transition={transition(positions.length, setPosition)}
+      background="https://live.staticflickr.com/8120/8645468778_5a93cb17aa_k.jpg"
     >
       {quote}
     </Layout>

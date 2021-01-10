@@ -41,6 +41,7 @@ export default function Page() {
     <Layout
       notes={lesson.notes}
       transition={transition(positions.length, setPosition)}
+      background="https://live.staticflickr.com/7330/11588853743_ec55bba116_k.jpg"
     >
       {quote}
     </Layout>
