@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 const LinksDiv = styled.div`
   z-index: 999;
+  width: 10em;
 `;
 
 export default function Page() {

@@ -12,7 +12,7 @@ export enum LinkType {
 }
 
 export interface Node extends SimulationNodeDatum {
-  id: string;
+  id: string | number;
   size?: number;
   label?: string;
   type?: NodeType;
