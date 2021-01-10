@@ -44,6 +44,8 @@ $background: #0e253a;
 
 .main {
   background-color: $background;
+  background-size: 100%;
+  background-origin: content-box;
   color: #fff;
   height: 100%;
 }

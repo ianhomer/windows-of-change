@@ -22,14 +22,6 @@ interface LayoutProps {
   transition?: (direction: number) => boolean;
 }
 
-const ContainerWithBackground = styled.div<{ url: string }>`
-  background-image: url("${(props) => props.url}");
-  background-size: 100%;
-  background-repeat: no-repeat;
-`;
-
-const ContainerDefault = styled.div``;
-
 const Image = styled.img`
   position: absolute;
   left: 0;
@@ -69,16 +61,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
     return () => window.removeEventListener("keyup", onKeyUp);
   }, [notesVisible]);
 
-  const backgrounder = (background: string) => {
-    const element = ContainerWithBackground;
-    element.defaultProps = { url: background };
-    return element;
-  };
-
-  const Container = props.background
-    ? backgrounder(props.background)
-    : ContainerDefault;
-
   return (
     <>
       <style jsx global>{`
@@ -90,10 +72,17 @@ export default function Layout(props: LayoutProps): JSX.Element {
       <Head>
         <title>{title}</title>
       </Head>
-      <main className={styles.main}>
+      <main
+        style={{
+          ...(props.background && {
+            backgroundImage: "url(" + props.background + ")",
+          }),
+        }}
+        className={styles.main}
+      >
         <Journey transition={transition} />
         <h1>{title}</h1>
-        <Container className={styles.container}>
+        <div className={styles.container}>
           {assets &&
             assets.map((asset) => {
               const url = typeof asset == "string" ? asset : asset.url;
@@ -114,7 +103,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
               <ReactMarkdown plugins={[gfm]} children={notes} />
             </div>
           )}
-        </Container>
+        </div>
       </main>
     </>
   );

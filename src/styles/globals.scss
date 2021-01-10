@@ -29,6 +29,8 @@ h1 {
   color: $heading;
   text-transform: uppercase;
   padding-left: 1em;
+  padding-top: 1em;
+  margin-top: 0em;
 }
 
 @media (max-width: 800px) {
