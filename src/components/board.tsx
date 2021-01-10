@@ -3,6 +3,7 @@ import { useDrop, DropTargetMonitor } from "react-dnd";
 import Slider from "@material-ui/core/Slider";
 import { useState } from "react";
 import Window from "../components/window";
+import Editable from "../components/editable";
 
 interface WindowParams {
   left?: number;
@@ -63,7 +64,11 @@ export default function Board(props: BoardProps): JSX.Element {
           height={window.height}
           opacity={window.opacity ?? opacity}
         >
-          {window.children}
+          {typeof window.children === "string" ? (
+            <Editable>{window.children}</Editable>
+          ) : (
+            window.children
+          )}
         </Window>
       ))}
     </div>
