@@ -9,6 +9,7 @@ interface WindowParams {
   top?: number;
   width?: number;
   height?: number;
+  opacity?: number;
   children: any;
 }
 
@@ -60,7 +61,7 @@ export default function Board(props: BoardProps): JSX.Element {
           top={window.top}
           width={window.width}
           height={window.height}
-          opacity={opacity}
+          opacity={window.opacity ?? opacity}
         >
           {window.children}
         </Window>

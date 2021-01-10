@@ -6,9 +6,9 @@ import Board from "../components/board";
 
 export default function Page() {
   const contents = [
-    { left: 100, top: 100, children: "do" },
+    { left: 100, top: 100, children: "do", opacity: 0.2 },
     { left: 300, top: 100, width: 200, height: 200, children: "doing" },
-    { left: 550, top: 100, children: "done" },
+    { left: 550, top: 100, children: "done", opacity: 0.2 },
   ];
 
   return (
