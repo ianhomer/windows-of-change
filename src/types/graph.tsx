@@ -13,14 +13,14 @@ export enum LinkType {
 }
 
 export interface Node extends SimulationNodeDatum {
-  id: string | number;
+  id: string;
   size?: number;
   label?: string;
   type?: NodeType;
 }
 
 export interface Link extends SimulationLinkDatum<Node> {
-  id: string | number;
+  id?: string;
   type?: LinkType;
   size?: number;
 }

@@ -72,12 +72,12 @@ export default function Page() {
     ];
     const newLinks = [
       {
-        id: 1,
+        id: "1",
         source: "change1",
         target: "thing",
       },
       {
-        id: 2,
+        id: "2",
         source: "change2",
         target: "change1",
       },
