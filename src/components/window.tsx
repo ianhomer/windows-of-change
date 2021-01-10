@@ -7,6 +7,8 @@ import { useState } from "react";
 interface WindowProps {
   left?: number;
   top?: number;
+  width?: number;
+  height?: number;
   children: any;
   opacity: number;
 }
@@ -14,6 +16,8 @@ interface WindowProps {
 function getStyles(
   left: number,
   top: number,
+  width: number,
+  height: number,
   opacity: number,
   isDragging: boolean
 ): React.CSSProperties {
@@ -28,6 +32,8 @@ function getStyles(
     overflow: "hidden",
     borderRadius: "1em",
     color: "#000",
+    width,
+    height,
     transform,
     WebkitTransform: transform,
     opacity: isDragging ? 0 : opacity,
@@ -38,6 +44,9 @@ export default function Window(props: WindowProps): JSX.Element {
   const [left, setLeft] = useState(props.left ?? 0);
   const [top, setTop] = useState(props.top ?? 0);
   const [opacity, setOpacity] = useState(props?.opacity ?? 0.5);
+
+  const height = props.height ?? 100;
+  const width = props.width ?? 100;
 
   const handleOpacityChange = (event: any, newValue: number | number[]) => {
     setOpacity(Array.isArray(newValue) ? newValue[0] : newValue);
@@ -74,6 +83,8 @@ export default function Window(props: WindowProps): JSX.Element {
       style={getStyles(
         left,
         top,
+        width,
+        height,
         calculateOpacity(opacity, props.opacity),
         isDragging
       )}

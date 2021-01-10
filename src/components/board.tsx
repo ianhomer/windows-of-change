@@ -7,6 +7,8 @@ import Window from "../components/window";
 interface WindowParams {
   left?: number;
   top?: number;
+  width?: number;
+  height?: number;
   children: any;
 }
 
@@ -53,7 +55,13 @@ export default function Board(props: BoardProps): JSX.Element {
       </div>
 
       {props.contents.map((window) => (
-        <Window left={window.left} top={window.top} opacity={opacity}>
+        <Window
+          left={window.left}
+          top={window.top}
+          width={window.width}
+          height={window.height}
+          opacity={opacity}
+        >
           {window.children}
         </Window>
       ))}
