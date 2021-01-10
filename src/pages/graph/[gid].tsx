@@ -4,6 +4,11 @@ import graphs from "../../graphs";
 import { useRouter } from "next/router";
 import { Graph } from "../../types/graph";
 import { stringy } from "../../utils/stringish";
+import styled from "styled-components";
+
+const LinksDiv = styled.div`
+  z-index: 999;
+`;
 
 export default function Page() {
   const router = useRouter();
@@ -11,16 +16,18 @@ export default function Page() {
 
   return (
     <Layout>
-      {gid != "index" && (
-        <GraphDiagram graph={graphs[gid] as Graph} className="inline" />
-      )}
-      <div>
+      {gid in graphs && <GraphDiagram graph={graphs[gid] as Graph} />}
+      <LinksDiv>
         {Object.keys(graphs).map((key) => (
-          <a key={key} href={"/graph/" + key}>
-            {key}
-          </a>
+          <ul>
+            <li>
+              <a key={key} href={"/graph/" + key}>
+                {key}
+              </a>
+            </li>
+          </ul>
         ))}
-      </div>
+      </LinksDiv>
     </Layout>
   );
 }

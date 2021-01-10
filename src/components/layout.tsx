@@ -51,7 +51,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
       } else {
         const direction =
           e.key == "ArrowLeft" ? -1 : e.key == "ArrowRight" ? 1 : 0;
-        transition(direction);
+        if (direction != 0) {
+          transition(direction);
+        }
       }
     };
     window.addEventListener("keyup", onKeyUp);

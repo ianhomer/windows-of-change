@@ -16,6 +16,7 @@ const journey: string[] = [
   "things-change-do",
   "flow",
   "things-make-prizes",
+  "graph",
   "tensions",
   "trunk",
   "forks",
