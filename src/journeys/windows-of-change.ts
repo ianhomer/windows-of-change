@@ -20,6 +20,7 @@ const journey: string[] = [
   "trunk",
   "forks",
   "dream-dashboards",
+  "a-rough-dashboard",
   "whatever-board",
   "zen-board",
   "individual-to-org",
