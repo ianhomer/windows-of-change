@@ -22,7 +22,7 @@ export default function Page() {
 
   const contents = [
     { left: 100, top: 400, children: "do", opacity: 0.5 },
-    { left: 300, top: 400, width: 200, height: 200, children: "doing" },
+    { left: 300, top: 400, children: "doing" },
   ];
 
   return (
