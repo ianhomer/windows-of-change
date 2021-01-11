@@ -2,7 +2,10 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-- me -> mob -> team -> org
+- dashboard with knobs on
+- ground → sky ~- helicopter in out~
+- me → mob → team → org ~- what I need to do ; what we need to do~
+- sunrise → sunset ~- morning stuff ; end of day stuff ; end of week~
 `,
   notes: `
 - dream dask board
