@@ -12,11 +12,16 @@ interface WindowParams {
   height?: number;
   opacity?: number;
   children: any;
+  slider?: boolean;
 }
 
 interface BoardProps {
   contents: WindowParams[];
 }
+
+Board.defaultProps = {
+  slider: true,
+};
 
 export default function Board(props: BoardProps): JSX.Element {
   const [opacity, setOpacity] = useState(0.9);
@@ -45,16 +50,18 @@ export default function Board(props: BoardProps): JSX.Element {
         height: "90%",
       }}
     >
-      <div style={{ padding: "1em" }}>
-        <Slider
-          value={opacity}
-          onChange={handleOpacityChange}
-          aria-labelledby="continuous-slider"
-          min={0.1}
-          max={1}
-          step={0.01}
-        />
-      </div>
+      {props.slider && (
+        <div style={{ padding: "1em", zIndex: 10 }}>
+          <Slider
+            value={opacity}
+            onChange={handleOpacityChange}
+            aria-labelledby="continuous-slider"
+            min={0.1}
+            max={1}
+            step={0.01}
+          />
+        </div>
+      )}
 
       {props.contents.map((window) => (
         <Window

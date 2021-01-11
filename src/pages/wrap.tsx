@@ -41,8 +41,8 @@ export default function Page() {
   }, [position]);
 
   const contents = [
-    { left: 100, top: 300, children: "do", opacity: 0.5 },
-    { left: 300, top: 300, children: "doing" },
+    { left: 100, top: 350, children: "do", opacity: 0.5 },
+    { left: 300, top: 350, children: "doing" },
   ];
 
   return (
@@ -67,7 +67,7 @@ export default function Page() {
         ]}
       />
       <DragAndDrop>
-        <Board contents={contents} />
+        <Board contents={contents} slider={false} />
       </DragAndDrop>
       <GraphDiagram graph={graph} />
     </Layout>

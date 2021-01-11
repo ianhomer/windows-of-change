@@ -38,6 +38,7 @@ function getStyles(
     WebkitTransform: transform,
     backgroundColor: isDragging ? "#ffff00" : "#fff",
     opacity: isDragging ? 0 : opacity,
+    zIndex: 10,
   };
 }
 
