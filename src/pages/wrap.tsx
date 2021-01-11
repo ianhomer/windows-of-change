@@ -22,8 +22,8 @@ export default function Page() {
     nodes: [
       { id: "0", fx: 300, fy: 0, size: 20, type: NodeType.Thing },
       { id: "1", x: 100, y: 0 },
-      { id: "2", x: -100, y: 0 },
-      { id: "3", x: -300, y: 0 },
+      { id: "2", x: -50, y: 0 },
+      { id: "3", x: -200, y: 0 },
       { id: "do-1", x: -200, y: 50, type: NodeType.Do },
       { id: "do-2", x: -200, y: -50, type: NodeType.Do },
     ],
