@@ -3,6 +3,8 @@ import lesson from "../lessons/wrap";
 import Stack from "../components/stack";
 import { useEffect, useState } from "react";
 import { transition } from "../utils/journeyish";
+import DragAndDrop from "../components/drag-and-drop";
+import Board from "../components/board";
 
 const positions = [
   { properties: ["name"] },
@@ -17,6 +19,11 @@ export default function Page() {
   useEffect(() => {
     setProperties(positions[position].properties);
   }, [position]);
+
+  const contents = [
+    { left: 100, top: 400, children: "do", opacity: 0.5 },
+    { left: 300, top: 400, width: 200, height: 200, children: "doing" },
+  ];
 
   return (
     <Layout
@@ -39,6 +46,9 @@ export default function Page() {
           { name: "Focused", on: "now", visual: "3. dream dashboard" },
         ]}
       />
+      <DragAndDrop>
+        <Board contents={contents} />
+      </DragAndDrop>
     </Layout>
   );
 }
