@@ -46,6 +46,7 @@ export default function Page() {
       content={content}
       notes={lesson.notes}
       transition={transition(positions.length, setPosition)}
+      background="https://live.staticflickr.com/8673/16482465620_19ce5f675e_k.jpg"
     />
   );
 }

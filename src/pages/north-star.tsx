@@ -16,7 +16,10 @@ const Image = styled.div`
 
 export default function Page() {
   return (
-    <Layout notes={lesson.notes}>
+    <Layout
+      notes={lesson.notes}
+      background="https://live.staticflickr.com/4881/32924997358_a0d7302d8c_k.jpg"
+    >
       <Image />
     </Layout>
   );
