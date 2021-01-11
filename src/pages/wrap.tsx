@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { transition } from "../utils/journeyish";
 import DragAndDrop from "../components/drag-and-drop";
 import Board from "../components/board";
+import GraphDiagram from "../components/graph-diagram";
+import { Graph, NodeType } from "../types/graph";
 
 const positions = [
   { properties: ["name"] },
@@ -15,6 +17,24 @@ const positions = [
 export default function Page() {
   const [position, setPosition] = useState(0);
   const [properties, setProperties] = useState(["name"]);
+
+  const graph: Graph = {
+    nodes: [
+      { id: "0", fx: 100, fy: 100, size: 20, type: NodeType.Thing },
+      { id: "1", fx: 0, fy: 100 },
+      { id: "2", fx: -100, fy: 100 },
+      { id: "3", fx: -200, fy: 100 },
+      { id: "do-1", x: -100, y: 100, type: NodeType.Do },
+      { id: "do-2", x: -100, y: 100, type: NodeType.Do },
+    ],
+    links: [
+      { source: "1", target: "0" },
+      { source: "2", target: "1" },
+      { source: "3", target: "2" },
+      { source: "do-1", target: "2" },
+      { source: "do-2", target: "2" },
+    ],
+  };
 
   useEffect(() => {
     setProperties(positions[position].properties);
@@ -49,6 +69,7 @@ export default function Page() {
       <DragAndDrop>
         <Board contents={contents} />
       </DragAndDrop>
+      <GraphDiagram graph={graph} />
     </Layout>
   );
 }
