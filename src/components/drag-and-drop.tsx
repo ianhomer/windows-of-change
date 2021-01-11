@@ -16,9 +16,16 @@ function useDNDProviderElement(props: DragAndDropProps) {
   if (!props.children) return null;
 
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
-      {props.children}
-    </DndProvider>
+    <>
+      {manager.current.dragDropManager && (
+        <DndProvider manager={manager.current.dragDropManager}>
+          {props.children}
+        </DndProvider>
+      )}
+      {!manager.current.dragDropManager && (
+        <div>DragDropManager not avaialable</div>
+      )}
+    </>
   );
 }
 
