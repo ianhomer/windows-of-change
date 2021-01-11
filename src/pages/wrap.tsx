@@ -21,8 +21,8 @@ export default function Page() {
   }, [position]);
 
   const contents = [
-    { left: 100, top: 400, children: "do", opacity: 0.5 },
-    { left: 300, top: 400, children: "doing" },
+    { left: 100, top: 300, children: "do", opacity: 0.5 },
+    { left: 300, top: 300, children: "doing" },
   ];
 
   return (
