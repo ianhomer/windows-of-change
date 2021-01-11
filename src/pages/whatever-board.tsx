@@ -4,10 +4,9 @@ import Board from "../components/board";
 import Editable from "../components/editable";
 import Mailbox from "../components/mailbox";
 import InstantMessager from "../components/instant-messager";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { useEffect, useState } from "react";
 import { transition } from "../utils/journeyish";
+import DragAndDrop from "../components/drag-and-drop";
 
 const windowTitles = [
   "Weather",
@@ -49,9 +48,9 @@ export default function Page() {
       lesson={lesson}
       transition={transition(windowTitles.length, setPosition)}
     >
-      <DndProvider backend={HTML5Backend}>
+      <DragAndDrop>
         <Board contents={contents} />
-      </DndProvider>
+      </DragAndDrop>
     </Layout>
   );
 }

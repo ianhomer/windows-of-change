@@ -1,16 +1,11 @@
 // As per https://github.com/react-dnd/react-dnd/issues/186#issuecomment-561631584
 
 import { DndProvider, createDndContext } from "react-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import React, { useRef } from "react";
 
 interface DragAndDropProps {
-  left?: number;
-  top?: number;
-  width?: number;
-  height?: number;
   children: any;
-  opacity: number;
 }
 
 const RNDContext = createDndContext(HTML5Backend);

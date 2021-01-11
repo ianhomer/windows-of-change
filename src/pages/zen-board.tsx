@@ -1,7 +1,6 @@
 import Layout from "../components/layout";
 import lesson from "../lessons/zen-board";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import DragAndDrop from "../components/drag-and-drop";
 import Board from "../components/board";
 
 export default function Page() {
@@ -13,9 +12,9 @@ export default function Page() {
 
   return (
     <Layout notes={lesson.notes}>
-      <DndProvider backend={HTML5Backend}>
+      <DragAndDrop>
         <Board contents={contents} />
-      </DndProvider>
+      </DragAndDrop>
     </Layout>
   );
 }

@@ -24,7 +24,7 @@ function getStyles(
   const transform = `translate3d(${left}px, ${top}px, 0)`;
   return {
     resize: "both",
-    padding: "7px",
+    padding: "1em",
     borderWidth: "5px",
     borderColor: "#000",
     borderStyle: "solid",
@@ -36,6 +36,7 @@ function getStyles(
     height,
     transform,
     WebkitTransform: transform,
+    backgroundColor: isDragging ? "#ffff00" : "#fff",
     opacity: isDragging ? 0 : opacity,
   };
 }
