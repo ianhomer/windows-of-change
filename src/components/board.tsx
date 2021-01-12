@@ -12,11 +12,11 @@ interface WindowParams {
   height?: number;
   opacity?: number;
   children: any;
-  slider?: boolean;
 }
 
 interface BoardProps {
   contents: WindowParams[];
+  slider?: boolean;
 }
 
 Board.defaultProps = {

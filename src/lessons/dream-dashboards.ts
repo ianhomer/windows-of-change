@@ -8,6 +8,7 @@ const lesson: Lesson = {
 - fits on one ~small~ screen
 - mindset & prototype tool
 - ~exercise to help you know what you want~
+- ~get the best out of the tools you have~
 `,
   notes: `
 - help adjust what tooling you have in place and help evolve that to a better

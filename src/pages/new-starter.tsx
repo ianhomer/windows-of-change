@@ -14,8 +14,15 @@ export default function Page() {
     { left: 500, top: 200, children: "your squad" },
   ];
 
+  const content = `
+- Learner's journey
+`;
   return (
-    <Layout notes={lesson.notes} title="New Starter - Engineer">
+    <Layout
+      content={content}
+      notes={lesson.notes}
+      title="New Starter - Engineer"
+    >
       <DragAndDrop>
         <Board contents={contents} />
       </DragAndDrop>
