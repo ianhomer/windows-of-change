@@ -27,7 +27,7 @@ const positions = (() => {
 - ~how do we know~ what we can do ~each day~
 - ~how do we know~ what is good
 - ~how do align and~ create the right thing
-- ~how do we does this~ together
+- ~how do we do this~ together
   `,
   ];
   return messages;
