@@ -9,9 +9,9 @@ export default function Page() {
         layers={[
           { name: "values" },
           {},
-          {},
-          {},
           { name: "principles" },
+          { name: "guardrails" },
+          { name: "healthchecks" },
           { name: "practices" },
         ]}
       />
