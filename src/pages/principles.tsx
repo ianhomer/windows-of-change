@@ -11,7 +11,7 @@ export default function Page() {
           {},
           { name: "principles" },
           { name: "guardrails" },
-          { name: "healthchecks" },
+          { name: "health checks" },
           { name: "practices" },
         ]}
       />
