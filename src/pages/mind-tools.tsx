@@ -8,20 +8,26 @@ const positions = (() => {
     `
 - Work flow & communication tools ... meh!
 - Each channel is clamouring for attention
-- Misalign on what is important
+- Misaligned on what is important
   `,
     `
 - Work flow & communication tools ... meh!
 - Each channel is clamouring for attention
-- Misalign on what is important
-- tool X is !!!
+- Misaligned on what is important
+- tool X is ...
+`,
+    `
+- Work flow & communication tools ... meh!
+- Each channel is clamouring for attention
+- Misaligned on what is important
+- tool X is ... **!!?&%#!!**
 `,
     `
 - ~Work flow & communication tools ... meh!~
 - ~Each channel is clamouring for attention~
-- ~Misalign on what is important~
-- ~tool X is !!!~
-- Let's free ourselves from tools
+- ~Misaligned on what is important~
+- ~tool X is ... **!!?&%#!!**~
+- Let's free ourselves from tools - ~no tool blaming~
 - Let's dream a little 
     `,
   ];

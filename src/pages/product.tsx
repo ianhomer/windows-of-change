@@ -24,8 +24,8 @@ export default function Page() {
       opacity: 0.6,
     },
     { left: 300, top: 200, children: "backlog", opacity: 0.6 },
-    { left: 500, top: 200, children: "..." },
-    { left: 700, top: 200, children: "...", opacity: 0.2 },
+    { left: 500, top: 200, children: "refinement", opacity: 0.6 },
+    { left: 700, top: 200, children: "done" },
     { left: 900, top: 200, children: "Stakeholder review", opacity: 0.8 },
     { left: 900, top: 400, children: "Production Health", opacity: 0.8 },
   ];
