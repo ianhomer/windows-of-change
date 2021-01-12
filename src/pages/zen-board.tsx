@@ -11,7 +11,10 @@ export default function Page() {
   ];
 
   return (
-    <Layout notes={lesson.notes}>
+    <Layout
+      notes={lesson.notes}
+      background="https://live.staticflickr.com/4191/34598477905_17f634d60d_h.jpg"
+    >
       <DragAndDrop>
         <Board contents={contents} />
       </DragAndDrop>

@@ -4,7 +4,8 @@ const lesson: Lesson = {
   content: `
 - mail - noise ; alert / JIRA / CI
 - sliack - workspaces ; important messages buried
-- What others broadcast
+- what systems ~(randomly / noisily)~  broadcast
+- what other people think are important - **NOW!**
 `,
   notes: `
 - actual life board

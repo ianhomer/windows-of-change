@@ -20,14 +20,14 @@ Today we'll play with 3 visualisations to:
 Today we'll play with 3 visualisations to:
 
 1. ~help with~ alignment
-2. ~help with~ priorisation
+2. ~help with~ sequencing work
 3. help with doing the right thing
   `,
     `
 Today we'll play with 3 visualisations to:
 
 1. ~help with~ alignment
-2. ~help with~ priorisation
+2. ~help with~ sequencing work
 3. ~help with~ doing ~the right thing~
   `,
   ];

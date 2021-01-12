@@ -20,12 +20,12 @@ export default function Page() {
 
   const graph: Graph = {
     nodes: [
-      { id: "0", fx: 300, fy: 0, size: 20, type: NodeType.Thing },
-      { id: "1", x: 100, y: 0 },
-      { id: "2", x: -50, y: 0 },
-      { id: "3", x: -200, y: 0 },
-      { id: "do-1", x: -200, y: 50, type: NodeType.Do },
-      { id: "do-2", x: -200, y: -50, type: NodeType.Do },
+      { id: "0", fx: 300, fy: 100, size: 20, type: NodeType.Thing },
+      { id: "1", x: 100, y: 100 },
+      { id: "2", x: -50, y: 100 },
+      { id: "3", x: -200, y: 100 },
+      { id: "do-1", x: -200, y: 150, type: NodeType.Do },
+      { id: "do-2", x: -200, y: 50, type: NodeType.Do },
     ],
     links: [
       { source: "1", target: "0" },
@@ -50,6 +50,25 @@ export default function Page() {
       notes={lesson.notes}
       transition={transition(positions.length, setPosition)}
     >
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          padding: "1em",
+          fontSize: "1.2em",
+        }}
+      >
+        slides at{" "}
+        <strong>
+          <a href="https://boxofjam.com">boxofjam.com</a>
+        </strong>{" "}
+        : source code on{" "}
+        <strong>
+          <a href="https://github.com/ianhomer/windows-of-change">github</a>
+        </strong>{" "}
+        made with <strong>Next.js & D3</strong> & love
+      </div>
       <Stack
         properties={properties}
         layers={[

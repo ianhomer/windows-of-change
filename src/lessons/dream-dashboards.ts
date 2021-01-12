@@ -5,7 +5,8 @@ const lesson: Lesson = {
 - focus
 - just enough
 - context aware
-- mindset & prototype tool 
+- fits on one ~small~ screen
+- mindset & prototype tool
 - ~exercise to help you know what you want~
 `,
   notes: `

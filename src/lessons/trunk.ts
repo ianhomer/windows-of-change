@@ -2,11 +2,12 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
+- ~on my mind - modelling / visualisation of ...~
 - [trunk based development](https://trunkbaseddevelopment.com/)
-- golden metrics -> production change
-- rock solid CI
-- TDD / BDD
-- dream change flow
+- golden metrics → production change
+- rock solid CI - ~ship it on a Friday~
+- TDD / BDD - ~assertion of change ; assertion of value~
+- ~what is a dream change flow?~
 `,
 
   notes: `

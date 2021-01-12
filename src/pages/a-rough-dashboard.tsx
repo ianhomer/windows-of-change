@@ -3,11 +3,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <Layout>
-      <p>
-        When I asked the audience ... on a random mobbing call ... the audience
-        said ...
-      </p>
+    <Layout title="When I asked an audience ...">
       <Image
         src="/a-dream-dashboard.png"
         layout="fixed"

@@ -2,10 +2,13 @@ import { Lesson } from "../types/lesson";
 
 const lesson: Lesson = {
   content: `
-- micro-fractures 
+- ~on my mind - modelling / visualisation of ...~
+- micro-fractures - ~different paths within~
 - explore within common mission
-- separate delivery units
+- separate delivery units - ~competition~
 - different missions
+- ~when is a fork good?~
+- ~when alignment goes bad~
 `,
   notes: `
 - a good thing
