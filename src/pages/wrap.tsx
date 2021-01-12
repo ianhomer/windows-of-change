@@ -78,8 +78,8 @@ export default function Page() {
             visual: "1. ground to sky stack",
           },
           {
-            name: "Priotised",
-            on: "value",
+            name: "Sequenced",
+            on: "value & effort",
             visual: "2. thing change do force",
           },
           { name: "Focused", on: "now", visual: "3. dream dashboard" },
