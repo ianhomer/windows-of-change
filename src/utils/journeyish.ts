@@ -22,15 +22,17 @@ export function travel(
   return steps[nextIndex];
 }
 
-export const transition = (
-  positions: number,
-  setPosition: (setter: (position: number) => number) => void
-) => (direction: number): boolean => {
-  let changed = false;
-  setPosition((position: number) => {
-    const nextPosition = position + direction;
-    changed = nextPosition > -1 && nextPosition < positions;
-    return changed ? nextPosition : position;
-  });
-  return changed;
-};
+export const transition =
+  (
+    positions: number,
+    setPosition: (setter: (position: number) => number) => void
+  ) =>
+  (direction: number): boolean => {
+    let changed = false;
+    setPosition((position: number) => {
+      const nextPosition = position + direction;
+      changed = nextPosition > -1 && nextPosition < positions;
+      return changed ? nextPosition : position;
+    });
+    return changed;
+  };

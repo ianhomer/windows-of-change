@@ -13,9 +13,7 @@ function useDNDProviderElement(props: DragAndDropProps) {
 
   return (
     <>
-      <DndProvider backend={HTML5Backend}>
-        {props.children}
-      </DndProvider>
+      <DndProvider backend={HTML5Backend}>{props.children}</DndProvider>
     </>
   );
 }
