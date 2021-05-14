@@ -72,7 +72,8 @@ export default function Window(props: WindowProps): JSX.Element {
   };
 
   const [{ isDragging }, drag] = useDrag({
-    item: { type: "window", id: "1", move, left, top } as Draggable,
+    type: "window",
+    item: { id: "1", move, left, top } as Draggable,
     collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging(),
     }),
