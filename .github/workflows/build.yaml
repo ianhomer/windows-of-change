@@ -8,7 +8,6 @@ on:
     types:
       - completed
 
-        npm run build:storybook
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,5 +28,3 @@ jobs:
           yarn lint
           yarn test
           yarn build
-        env:
-          CI: true

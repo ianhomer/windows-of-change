@@ -1,21 +1,19 @@
+const { defaults } = require("jest-config");
 module.exports = {
+  verbose: true,
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
   ],
   setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
-  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
+  testPathIgnorePatterns: [...defaults.testPathIgnorePatterns, "/.next/"],
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+    "\\.[jt]sx?$": "babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
   },
-  transformIgnorePatterns: [
-    "/node_modules/",
-    "^.+\\.module\\.(css|sass|scss)$",
-  ],
+  transformIgnorePatterns: ["^.+\\.module\\.(css|sass|scss)$"],
   moduleNameMapper: {
-    "\\.(ico|png|svg|)$": "<rootDir>/config/jest/mocks.js",
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
   },
 };
