@@ -22,7 +22,7 @@ jobs:
       - name: update
         run: |
           yarn
-          yarn update
+          yarn upgrade -L
           yarn
           yarn build
         env:
